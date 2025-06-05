@@ -1,0 +1,67 @@
+.menu-section {
+  padding: 50px 20px;
+  background-color: #fffdfd;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.menu-title {
+  font-size: 2.5rem;
+  color: #8b0000;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.menu-categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra las tarjetas horizontalmente */
+  gap: 20px;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 300px; /* Opcional: limita ancho para que no ocupe todo */
+}
+
+
+.menu-card {
+  background-color: #ffffff;
+  border: 2px solid #8b0000;
+  border-radius: 20px;
+  width: 360px;      /* Más ancho */
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: #8b0000;
+  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4);
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu-card:hover {
+  background-color: #8b0000;
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+/* Imagen estilo perfil */
+.menu-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;  /* Círculo */
+  object-fit: cover;
+  border: 3px solid #8b0000;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+
+
+
+.menu-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
