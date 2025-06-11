@@ -1,0 +1,81 @@
+.postre-section {
+  padding: 40px 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #fff9f5;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(139, 0, 0, 0.3);
+}
+
+.postre-title {
+  color: #8b0000;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.postre-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.postre-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #8b000080;
+  padding: 15px 0;
+  gap: 20px;
+}
+
+.postre-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  object-fit: cover;
+  box-shadow: 0 3px 8px rgba(139, 0, 0, 0.4);
+  flex-shrink: 0;
+}
+
+.postre-info {
+  flex: 1;
+}
+
+.postre-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #8b0000;
+}
+
+.postre-info p {
+  margin: 5px 0 0 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+.postre-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #8b0000;
+  min-width: 70px;
+  text-align: right;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 30px;
+  color: #8b0000;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border: 2px solid #8b0000;
+  padding: 8px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #8b0000;
+  color: white;
+}
