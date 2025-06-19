@@ -19,6 +19,8 @@ import Cafe from './pages/desayunos/cafe/cafe';
 import Dulces from './pages/desayunos/dulces_salados/dulces_salados';
 import Merienda from './pages/desayunos/merienda/merienda';
 import MenuDelDia from './pages/menu_del_dia/menu_del_dia';
+import Bebidas from './pages/bebidas/bebidas';
+import Vino from './pages/bebidas/vino/vino';
 import './App.css';
 
 
@@ -48,6 +50,8 @@ function App() {
             <Route path="/dulces_salados" element={<Dulces />} />
             <Route path="/merienda" element={<Merienda />} />
             <Route path="/menu_del_dia" element={<MenuDelDia />} />
+            <Route path="/bebidas" element={<Bebidas />} />
+            <Route path="/vino" element={<Vino />} />
 
           </Routes>
         </main>

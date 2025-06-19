@@ -5,6 +5,7 @@ import desayunoImg from '../imagenes_desayuno/churros.jpg';
 import comidaImg from '../imagenes/comida.jpg';
 import bocadilloImg from '../imagenes_bocadillo/bocadillo.jpg';
 import menuImg from '../imagenes_menu/menu_del_dia.png';
+import bebidaImg from '../imagenes_bebidas/bebidas.jpg';
 import './restaurante.css';
 
 const Restaurante = () => {
@@ -13,6 +14,7 @@ const Restaurante = () => {
     { nombre: 'Menú del día', ruta: '/menu_del_dia', imagen: menuImg },
     { nombre: 'Comidas', ruta: '/comida', imagen: comidaImg },
     { nombre: 'Tostas y Bocadillos', ruta: '/tostas_bocadillos' , imagen: bocadilloImg },
+    { nombre: 'Bebidas', ruta: '/bebidas' , imagen: bebidaImg },
   ];
 
   return (
