@@ -10,9 +10,9 @@ function Home() {
       <div className="home-content">
         <img src={logo} alt="Logo Antídoto" className="home-logo" />
         <h1 className="home-title">Bienvenidos a Antídoto</h1>
-        <p className="home-subtitle">El sabor de Madrid en cada sorbo y bocados</p>
+        <p className="home-subtitle">El sabor de Madrid en cada sorbo y bocado</p>
         <button className="home-button" onClick={() => window.location.href = '/restaurante'}>
-          Restaurantes
+          Restaurante
         </button>
       </div>
       <div className="home-image-container">
