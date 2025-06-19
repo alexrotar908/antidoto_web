@@ -16,7 +16,7 @@
 
 .home-title {
   font-size: 3rem;
-  color: #8b0000;
+  color: #357ABD;
   margin-bottom: 15px;
   font-weight: bold;
 }
@@ -28,7 +28,7 @@
 }
 
 .home-button {
-  background-color: #8b0000;
+  background-color: #357ABD;
   color: white;
   padding: 12px 30px;
   font-size: 1.1rem;
@@ -40,7 +40,7 @@
 
 .home-button:hover {
   background-color: #ffd700;
-  color: #8b0000;
+  color: #357ABD;
 }
 
 .home-image-container {
@@ -54,20 +54,20 @@
 .home-image {
   max-width: 100%;
   border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(139, 0, 0, 0.4);
+  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
 }
 
 .home-logo {
   max-width: 180px;
   margin-bottom: 25px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.5);
+  box-shadow: 0 4px 12px rgba(63, 145, 221, 0.4);
   display: block;
 }
 
 .home-hours {
   font-size: 1.1rem;
-  color: #8b0000;
+  color: #357ABD;
   margin-bottom: 25px;
   line-height: 1.6;
 }
@@ -79,7 +79,7 @@
   padding: 10px 25px;
   font-size: 1rem;
   background-color: #ffd700;
-  color: #8b0000;
+  color: #357ABD;
   border: none;
   border-radius: 25px;
   text-decoration: none;

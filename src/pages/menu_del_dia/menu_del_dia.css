@@ -1,0 +1,83 @@
+/* src/components/MenuDelDia.css */
+.menu-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  background-color: #fff;
+}
+
+.menu-title {
+  text-align: center;
+  font-size: 2.2em;
+  margin-bottom: 0.2em;
+  color: #1e90ff; /* Azul suave */
+  letter-spacing: 1px;
+}
+
+.menu-subtitle {
+  text-align: center;
+  font-style: italic;
+  margin-bottom: 2em;
+  color: #555;
+}
+
+.menu-section {
+  margin-bottom: 2.5em;
+}
+
+.menu-section-title {
+  text-align: center;
+  color: #1e90ff;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.menu-section-title span {
+  display: block;
+  font-size: 0.8em;
+  font-weight: normal;
+  color: #777;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  text-align: center;
+}
+
+ul li {
+  margin: 0.4em 0;
+}
+
+.menu-extra {
+  text-align: center;
+  margin-top: 2em;
+  font-size: 1em;
+  color: #444;
+}
+
+.menu-price {
+  font-weight: bold;
+  margin-top: 0.5em;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 30px;
+  color: #357ABD;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border: 2px solid #357ABD;
+  padding: 8px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #357ABD;
+  color: white;
+}

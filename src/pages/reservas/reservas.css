@@ -1,0 +1,70 @@
+.reservas-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #357ABD; /* rojo vino */
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: white;
+  text-align: center;
+}
+
+.reservas-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.reserva-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.reserva-form input,
+.reserva-form textarea {
+  padding: 0.8rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  transition: box-shadow 0.3s ease;
+}
+
+.reserva-form input:focus,
+.reserva-form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 5px 2px gold;
+}
+
+.reserva-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.reserva-form button {
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  background-color: white;
+  color: #357ABD;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.reserva-form button:hover {
+  background-color: gold;
+  color: #357ABD;
+}
+
+.confirmacion {
+  font-size: 1.2rem;
+  background-color: #c2c50a; /* verde oscuro como confirmación */
+  padding: 1rem;
+  border-radius: 12px;
+  color: rgb(0, 0, 0);
+  box-shadow: 0 0 10px rgba(0, 100, 0, 0.6);
+}

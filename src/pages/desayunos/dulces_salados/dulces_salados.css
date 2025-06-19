@@ -1,0 +1,65 @@
+.dulce-main-title {
+  color: #357ABD;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dulce-cards-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.dulce-card {
+  flex: 1 1 300px;
+  background-color: #fff5f5;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
+  max-width: 320px;
+}
+
+.dulce-subtitle {
+  color: #357ABD;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.dulce-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dulce-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #357ABD;
+  padding: 15px 0;
+  gap: 20px;
+}
+
+.dulce-info {
+  flex: 1;
+}
+
+.dulce-info h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #000000;
+  text-align: left;
+}
+
+.dulce-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000000;
+  min-width: 70px;
+  text-align: right;
+}

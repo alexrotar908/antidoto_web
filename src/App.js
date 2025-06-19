@@ -2,15 +2,26 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './pages/home/home';
-import Menu from './pages/menu/menu';
-import Contact from './pages/contact/contact';
+import Comida from './pages/comida/comida';
 import About from './pages/about/about';
-import Tapas from './pages/menu/apartados/tapas/tapas';
-import PrimerPlato from './pages/menu/apartados/primer_plato/primer_plato'; 
-import SegundoPlato from './pages/menu/apartados/segundo_plato/segundo_plato';
-import Postres from './pages/menu/apartados/postres/postres';
-import Beibidas from './pages/menu/apartados/bebidas/bebidas';
+import Reservas from './pages/reservas/reservas';
+import Entrantes from './pages/comida/categorias/entrantes/entrantes';
+import Sartenes from './pages/comida/categorias/sartenes/sartenes';
+import Ensaladas from './pages/comida/categorias/ensaladas/ensaladas';
+import Pescados from './pages/comida/categorias/pescados/pescados';
+import Carnes from './pages/comida/categorias/carnes/carnes';
+import Arroces from './pages/comida/categorias/arroces/arroces';
+import Pecar from './pages/comida/categorias/pecar/pecar';
+import Restaurante from './pages/restaurante';
+import TostasBocadillos from './pages/tostas_bocadillos/tostas_bocadillos';
+import Desayunos from './pages/desayunos/desayunos';
+import Cafe from './pages/desayunos/cafe/cafe';
+import Dulces from './pages/desayunos/dulces_salados/dulces_salados';
+import Merienda from './pages/desayunos/merienda/merienda';
+import MenuDelDia from './pages/menu_del_dia/menu_del_dia';
 import './App.css';
+
+
 
 function App() {
   return (
@@ -20,14 +31,23 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/menu" element={<Menu />} />
-            <Route path="/contacto" element={<Contact />} />
+            <Route path="/restaurante" element={<Restaurante />} />
+            <Route path="/comida" element={<Comida />} />
+            <Route path="/reservas" element={<Reservas />} />
             <Route path="/sobre-nosotros" element={<About />} />
-            <Route path="/menu/tapas" element={<Tapas />} />
-            <Route path="/menu/primer_plato" element={<PrimerPlato />} />
-            <Route path="/menu/segundo_plato" element={<SegundoPlato />} />
-            <Route path="/menu/postres" element={<Postres />} />
-            <Route path="/menu/bebidas" element={<Beibidas />} />
+            <Route path="/comida/entrantes" element={<Entrantes />} />
+            <Route path="/comida/sartenes" element={<Sartenes />} />
+            <Route path="/comida/ensaladas" element={<Ensaladas />} />
+            <Route path="/comida/pescados" element={<Pescados />} />
+            <Route path="/comida/carnes" element={<Carnes />} />
+            <Route path="/comida/arroces" element={<Arroces />} />
+            <Route path="/comida/pecar" element={<Pecar />} />
+            <Route path="/tostas_bocadillos" element={<TostasBocadillos />} />
+            <Route path="/desayunos-meriendas" element={<Desayunos />} />
+            <Route path="/cafe" element={<Cafe />} />
+            <Route path="/dulces_salados" element={<Dulces />} />
+            <Route path="/merienda" element={<Merienda />} />
+            <Route path="/menu_del_dia" element={<MenuDelDia />} />
 
           </Routes>
         </main>
