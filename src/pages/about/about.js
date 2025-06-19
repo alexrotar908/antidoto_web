@@ -30,6 +30,7 @@ const About = () => {
 
         <h2>Contacto</h2>
         <p>Teléfono: 917177628</p>
+        <p>E-mail: antidoto1973@gmail.com </p>
 
         <h2>Ubicación</h2>
         <p>C/ de Baeza, 11, Chamartín, 28002 Madrid</p>
