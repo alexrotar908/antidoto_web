@@ -9,14 +9,6 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-.titulos {
-  color: #357ABD;
-  text-align: center;
-  font-size: 2.5rem;
-  margin-top: 0;
-  margin-bottom: 40px;
-}
-
 
 .columna {
   flex: 1;
