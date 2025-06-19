@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div className="sobre-nosotros-layout">
       <div className="columna izquierda">
-        <h1 className="titulo" >Sobre Nosotros</h1>
+        <h1 className="titulos" >Sobre Nosotros</h1>
         <h2>Historia</h2>
         <p>
           Antídoto nació en el corazón de Madrid con la idea de ser más que un bar. Fundado por un grupo de amigos apasionados por la gastronomía y el buen ambiente, el local abrió sus puertas con la intención de ofrecer una experiencia única que combina tradición, creatividad y cercanía.
