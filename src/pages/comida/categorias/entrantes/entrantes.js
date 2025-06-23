@@ -61,7 +61,6 @@ function Tapas() {
           <li key={index} className="entrantes-item">
             <div className="entrantes-info">
               <h3>{entrantes.name}</h3>
-              <p>{entrantes.description}</p>
             </div>
             <div className="entrantes-price">{entrantes.price}</div>
           </li>

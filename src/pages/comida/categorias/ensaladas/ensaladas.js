@@ -19,7 +19,7 @@ function Ensaladas() {
       price: '14.50€',
     },
     { 
-      name: 'ensalada de queso de cabra y nueces', 
+      name: 'Ensalada de queso de cabra y nueces', 
       price: '14.50€',
     },
 
