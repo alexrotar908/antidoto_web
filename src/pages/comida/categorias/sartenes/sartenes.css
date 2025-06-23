@@ -80,3 +80,41 @@
   background-color: #357ABD;
   color: white;
 }
+
+@media (max-width: 480px) {
+  .sartenes-section {
+    padding: 30px 15px;
+    max-width: 100%;
+  }
+
+  .sartenes-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .sartenes-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .sartenes-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+  }
+
+  .sartenes-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .sartenes-info p {
+    font-size: 0.9rem;
+  }
+
+  .sartenes-price {
+    min-width: auto;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+}

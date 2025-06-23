@@ -80,3 +80,42 @@
   background-color: #357ABD;
   color: white;
 }
+
+
+@media (max-width: 480px) {
+  .entrantes-section {
+    padding: 30px 15px;
+    max-width: 100%;
+  }
+
+  .entrantes-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .entrantes-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .entrantes-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+  }
+
+  .entrantes-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .entrantes-info p {
+    font-size: 0.9rem;
+  }
+
+  .entrantes-price {
+    min-width: auto;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+}

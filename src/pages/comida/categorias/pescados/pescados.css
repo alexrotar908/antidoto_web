@@ -80,3 +80,41 @@
   background-color: #357ABD;
   color: white;
 }
+
+@media (max-width: 480px) {
+  .pescados-section {
+    padding: 30px 15px;
+    max-width: 100%;
+  }
+
+  .pescados-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .pescados-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .pescados-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+  }
+
+  .pescados-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .pescados-info p {
+    font-size: 0.9rem;
+  }
+
+  .pescados-price {
+    min-width: auto;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+}

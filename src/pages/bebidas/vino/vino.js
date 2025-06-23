@@ -65,7 +65,7 @@ function Vino() {
         </div>
 
         <div className="vino-card">
-          <h3 className="vino-subtitle">UN BLANCO PARA ACOMPAÑAR</h3>
+          <h3 className="vino-subtitle">ROSADO EL GRAN DESCONOCIDO</h3>
           <ul className="vino-list">
             {blancoList.map((item, index) => (
               <li key={index} className="vino-item">
@@ -79,7 +79,7 @@ function Vino() {
         </div>
 
         <div className="vino-card">
-          <h3 className="vino-subtitle">UN BLANCO PARA ACOMPAÑAR</h3>
+          <h3 className="vino-subtitle">NOS METEMOS EN FAENA</h3>
           <ul className="vino-list">
             {rosadoList.map((item, index) => (
               <li key={index} className="vino-item">

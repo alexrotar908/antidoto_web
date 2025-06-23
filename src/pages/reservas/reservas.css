@@ -68,3 +68,43 @@
   color: rgb(0, 0, 0);
   box-shadow: 0 0 10px rgba(0, 100, 0, 0.6);
 }
+
+.error {
+  color: yellow;
+  font-weight: bold;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .reservas-container {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .reservas-container h2 {
+    font-size: 1.6rem;
+  }
+
+  .reserva-form input,
+  .reserva-form textarea {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+
+  .reserva-form button {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .confirmacion {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .error {
+    font-size: 0.9rem;
+  }
+}
+

@@ -81,3 +81,38 @@ ul li {
   background-color: #357ABD;
   color: white;
 }
+
+@media (max-width: 600px) {
+  .menu-container {
+    padding: 30px 15px;
+  }
+
+  .menu-title {
+    font-size: 1.8em;
+  }
+
+  .menu-subtitle {
+    font-size: 1em;
+  }
+
+  .menu-section-title {
+    font-size: 1.3em;
+  }
+
+  ul li {
+    font-size: 0.95em;
+  }
+
+  .menu-extra {
+    font-size: 0.95em;
+  }
+
+  .menu-price {
+    font-size: 1em;
+  }
+
+  .back-button {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+}

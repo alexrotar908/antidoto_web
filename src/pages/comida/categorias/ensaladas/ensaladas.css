@@ -80,3 +80,41 @@
   background-color: #357ABD;
   color: white;
 }
+
+@media (max-width: 480px) {
+  .ensaladas-section {
+    padding: 30px 15px;
+    max-width: 100%;
+  }
+
+  .ensaladas-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .ensaladas-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .ensaladas-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+  }
+
+  .ensaladas-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .ensaladas-info p {
+    font-size: 0.9rem;
+  }
+
+  .ensaladas-price {
+    min-width: auto;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+}

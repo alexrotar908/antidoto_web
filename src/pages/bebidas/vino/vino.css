@@ -63,3 +63,44 @@
   min-width: 70px;
   text-align: right;
 }
+
+@media (max-width: 480px) {
+  .vino-main-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .vino-cards-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .vino-card {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .vino-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+
+  .vino-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .vino-price {
+    min-width: auto;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .vino-info h4 {
+    font-size: 1rem;
+  }
+}

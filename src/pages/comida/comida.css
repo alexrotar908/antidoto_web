@@ -110,3 +110,48 @@
   background-color: #357ABD;
   color: white;
 }
+
+@media (max-width: 480px) {
+  .comida-section {
+    padding: 30px 15px;
+  }
+
+  .comida-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .comida-categories {
+    max-width: 100%;
+  }
+
+  .comida-card {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.4rem;
+  }
+
+  .comida-card img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .comida-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .comida-call-button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  .comida-button {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+
+  .back-button {
+    font-size: 1rem;
+    padding: 6px 18px;
+  }
+}

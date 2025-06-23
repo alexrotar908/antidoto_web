@@ -5,6 +5,7 @@ const Reservas = () => {
   const [formData, setFormData] = useState({
     nombre: '',
     telefono: '',
+    email: '',
     personas: '',
     fecha: '',
     hora: '',
@@ -12,13 +13,39 @@ const Reservas = () => {
   });
 
   const [enviado, setEnviado] = useState(false);
+  const [errorTelefono, setErrorTelefono] = useState('');
+  const [errorEmail, setErrorEmail] = useState('');
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const esTelefonoValido = (telefono) => {
+    const regex = /^(?:\+34|0034)?[6789]\d{8}$/;
+    return regex.test(telefono);
+  };
+
+  const esEmailValido = (email) => {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+};
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+     if (!esTelefonoValido(formData.telefono)) {
+      setErrorTelefono('Por favor, introduce un número de teléfono español válido.');
+      return;
+    }
+
+    setErrorTelefono('');
+
+    if (!esEmailValido(formData.email)) {
+  setErrorEmail('Por favor, introduce un correo electrónico válido.');
+  return;
+    }
+    
+    setErrorEmail('');
 
     try {
       const res = await fetch(
@@ -35,6 +62,7 @@ const Reservas = () => {
         setFormData({
           nombre: '',
           telefono: '',
+          email: '',
           personas: '',
           fecha: '',
           hora: '',
@@ -74,6 +102,16 @@ const Reservas = () => {
             onChange={handleChange}
             required
           />
+          {errorTelefono && <p className="error">{errorTelefono}</p>}
+          <input
+           type="email"
+           name="email"
+           placeholder="Correo electrónico"
+           value={formData.email}
+           onChange={handleChange}
+           required
+           />
+           {errorEmail && <p className="error">{errorEmail}</p>}
           <input
             type="number"
             name="personas"

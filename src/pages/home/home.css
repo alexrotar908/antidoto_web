@@ -90,3 +90,40 @@
   background-color: #e6c200;
 }
 
+@media (max-width: 600px) {
+  .home-section {
+    flex-direction: column;
+    padding: 30px 10px;
+    gap: 25px;
+  }
+
+  .home-content,
+  .home-image-container {
+    max-width: 100%;
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  .home-content {
+    order: 2; /* Poner el texto debajo de la imagen en móvil */
+  }
+
+  .home-image-container {
+    order: 1;
+  }
+
+  .home-title {
+    font-size: 2.2rem;
+  }
+
+  .home-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .home-button,
+  .home-call-button {
+    width: 100%;
+    padding: 12px 0;
+  }
+}
+

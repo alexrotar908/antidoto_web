@@ -1,4 +1,4 @@
-.restaurante-container {
+.restaurante-container { 
   min-height: 100vh;
   padding: 40px;
   text-align: center;
@@ -28,6 +28,7 @@
   height: 300px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .restaurante-card::before {
   content: "";
   position: absolute;
@@ -35,7 +36,6 @@
   background: rgba(0, 0, 0, 0.4); /* oscurece la imagen */
   z-index: 1;
 }
-
 
 .restaurante-card:hover {
   transform: scale(1.03);
@@ -59,4 +59,28 @@
   font-weight: bold;
   color: white;
   z-index: 2; /* se mantiene encima del overlay */
+}
+
+/* ----------------------------- */
+/*      MEDIA QUERY: MOBILE      */
+/* ----------------------------- */
+@media (max-width: 600px) {
+  .restaurante-container {
+    padding: 20px 15px;
+  }
+
+  .restaurante-grid {
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .restaurante-card {
+    height: 250px;
+  }
+
+  .restaurante-content {
+    font-size: 16px;
+    padding: 0 5px;
+  }
 }
