@@ -2,7 +2,7 @@ import { supabase } from '../../../../antidotoDB/supaBaseClient';
 
 export async function getSartenes() {
   const { data, error } = await supabase
-    .from('sartenes')
+    .from('sartenes_cuchara')
     .select('*')
     .order('id', { ascending: true }); // 👈 Orden fijo
 
