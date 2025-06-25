@@ -1,0 +1,62 @@
+.admin-editor {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  color: #000;
+}
+
+.admin-editor h2,
+.admin-editor h3 {
+  color: #8b0000;
+  margin-bottom: 1rem;
+}
+
+.plato-item,
+.nuevo-plato {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.plato-item input,
+.nuevo-plato input {
+  padding: 0.4rem;
+  border-radius: 4px;
+  border: 1px solid #888;
+  width: 150px;
+}
+
+.plato-item label,
+.nuevo-plato label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.plato-item button,
+.nuevo-plato button {
+  padding: 0.4rem 0.8rem;
+  background-color: #8b0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.plato-item button:hover,
+.nuevo-plato button:hover {
+  background-color: #a00000;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 2rem 0;
+}

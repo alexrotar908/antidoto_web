@@ -21,6 +21,7 @@ import Merienda from './pages/desayunos/merienda/merienda';
 import MenuDelDia from './pages/menu_del_dia/menu_del_dia';
 import Bebidas from './pages/bebidas/bebidas';
 import Vino from './pages/bebidas/vino/vino';
+import AdminEditor from './pages/admin/admin';
 import './App.css';
 
 
@@ -52,6 +53,7 @@ function App() {
             <Route path="/menu_del_dia" element={<MenuDelDia />} />
             <Route path="/bebidas" element={<Bebidas />} />
             <Route path="/vino" element={<Vino />} />
+            <Route path="/admin" element={<AdminEditor />} />
 
           </Routes>
         </main>
