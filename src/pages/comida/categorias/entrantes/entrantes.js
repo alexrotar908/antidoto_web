@@ -25,7 +25,7 @@ function Tapas() {
               <h3>{entrantes.tipo}</h3>
             </div>
             <div className="entrantes-price">
-              {entrantes.precio}€
+              {entrantes.precio}€{entrantes.por_unidad && ' /ud.'}
               {entrantes.precio_media && (
                 <span> / Media: {entrantes.precio_media}€</span>
               )}
