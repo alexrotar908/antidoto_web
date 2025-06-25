@@ -1,40 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../cafe/cafe.css';
+import { getCafes } from '../cafe/cafeService';  // Ajusta la ruta según donde pongas el archivo
 
 function Cafe() {
-  const cafesClasicos = [
-    { name: 'Expreso', price: '1.80€' },
-    { name: 'Solo (solo + hielo)', price: '1.80€' },
-    { name: 'Café cortado', price: '1.90€' },
-    { name: 'Americano', price: '1.90€' },
-    { name: 'Capuccino', price: '3.50€' },
-    { name: 'Café bombón', price: '2.50€' },
-    { name: 'Chocolate a la taza', price: '3.00€' },
-    { name: 'Té o infusión (clásicos)', price: '1.90€' },
-  ];
+  const [cafesClasicos, setCafesClasicos] = useState([]);
+  const [cafesEspeciales, setCafesEspeciales] = useState([]);
 
-  const cafesEspeciales = [
-    { name: 'Café Irlandés', price: '6.50€' },
-    { name: 'Café Ruso', price: '6.50€' },
-    { name: 'Café blanco y negro', price: '5.50€' },
-    { name: 'Café carajillo', price: '5.50€' },
-  ];
+  useEffect(() => {
+    async function fetchCafes() {
+      const cafes = await getCafes();
+      // Suponiendo que en la tabla 'cafes' tienes un campo 'categoria' que puede ser 'clasico' o 'especial'
+      setCafesClasicos(cafes.filter(cafe => cafe.categoria === 'clasico'));
+      setCafesEspeciales(cafes.filter(cafe => cafe.categoria === 'especial'));
+    }
+    fetchCafes();
+  }, []);
 
   return (
     <section className="cafe-section">
       <h2 className="cafe-title">CAFÉS</h2>
       <p className="cafe-description">
-  Trabajamos con café ecológico, cultivado en zonas montañosas con un clima ideal y con suelos ricos en nutrientes. 
-  Elegimos un café para disfrutar de una bebida deliciosa apoyando a la vez prácticas que representan La Tierra y sus habitantes.
-</p>
+        Trabajamos con café ecológico, cultivado en zonas montañosas con un clima ideal y con suelos ricos en nutrientes. 
+        Elegimos un café para disfrutar de una bebida deliciosa apoyando a la vez prácticas que representan La Tierra y sus habitantes.
+      </p>
+      
       <ul className="cafe-list">
         {cafesClasicos.map((cafe, index) => (
           <li key={index} className="cafe-item">
             <div className="cafe-info">
-              <h3>{cafe.name}</h3>
+              <h3>{cafe.tipo}</h3>
             </div>
-            <div className="cafe-price">{cafe.price}</div>
+            <div className="cafe-price">{cafe.precio}€</div>
           </li>
         ))}
       </ul>
@@ -44,9 +41,9 @@ function Cafe() {
         {cafesEspeciales.map((cafe, index) => (
           <li key={index} className="cafe-item">
             <div className="cafe-info">
-              <h3>{cafe.name}</h3>
+              <h3>{cafe.tipo}</h3>
             </div>
-            <div className="cafe-price">{cafe.price}</div>
+            <div className="cafe-price">{cafe.precio}€</div>
           </li>
         ))}
       </ul>

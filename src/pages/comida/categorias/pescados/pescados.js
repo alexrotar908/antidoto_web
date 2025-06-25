@@ -1,25 +1,21 @@
-import React from 'react';
+import React,{ useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './pescados.css';
+import { getPescados } from './pescadosService';
 
 
 
 function Pescados() {
-  const pescadosList = [
-    { 
-      name: 'Chipirones de anzuelo a la plancha',  
-      price: '14.50€',
-    },
-    { 
-      name: 'Salmón en salsa cremosa de champiñones', 
-      price: '15.00€',
-    },
-    { 
-      name: 'Bacalao de la casa', 
-      price: '16.00€',
-    }
-
-  ];
+ const [pescadosList, setPescadosList] = useState([]);
+     
+       useEffect(() => {
+         async function fetchPescados() {
+           const pescados = await getPescados();
+           setPescadosList(pescados);
+         }
+     
+         fetchPescados();
+       }, []);
 
   return (
     <section className="pescados-section">
@@ -28,9 +24,9 @@ function Pescados() {
         {pescadosList.map((pescados, index) => (
           <li key={index} className="pescados-item">
             <div className="pescados-info">
-              <h3>{pescados.name}</h3>
+              <h3>{pescados.tipo}</h3>
             </div>
-            <div className="pescados-price">{pescados.price}</div>
+            <div className="pescados-price">{pescados.precio}€</div>
           </li>
         ))}
       </ul>

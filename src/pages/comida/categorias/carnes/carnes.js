@@ -1,33 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './carnes.css';
+import { getCarnes } from './carnesService';
 
 
 
 function Carnes() {
-  const carnesList = [
-    { 
-      name: 'Milanesa de pollo',  
-      price: '13.00€',
-    },
-    { 
-      name: 'Entrecot de ternera trinchado', 
-      price: '18.00€',
-    },
-    { 
-      name: 'Chuletillas de cordero (Segovia)', 
-      price: '24.00€',
-    },
-     { 
-      name: 'Solomillo de ternera receta del chef', 
-      price: '21.00€',
-    },
-     { 
-      name: 'Hamburguesa de la casa', 
-      price: '12.00€',
-    }
-
-  ];
+  const [carnesList, setCarnesList] = useState([]);
+       
+         useEffect(() => {
+           async function fetchCarnes() {
+             const carnes = await getCarnes();
+             setCarnesList(carnes);
+           }
+       
+           fetchCarnes();
+         }, []);
 
   return (
     <section className="carnes-section">
@@ -36,9 +24,9 @@ function Carnes() {
         {carnesList.map((carnes, index) => (
           <li key={index} className="carnes-item">
             <div className="carnes-info">
-              <h3>{carnes.name}</h3>
+              <h3>{carnes.tipo}</h3>
             </div>
-            <div className="carnes-price">{carnes.price}</div>
+            <div className="carnes-price">{carnes.precio}€</div>
           </li>
         ))}
       </ul>

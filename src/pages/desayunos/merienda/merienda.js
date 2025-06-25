@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../merienda/merienda.css';
+import { getMeriendas } from '../merienda/meriendaService';
 
 function Merienda() {
-  const meriendaList = [
-    { name: 'Tostas de solomillo con queso Brie y cebolla', price: '5.50€' },
-    { name: 'Tosta queso de cabra con tomates cherry', price: '5.50€' },
-    { name: 'Tosta de salmón, aguacate y eneldo', price: '5.50€' },
-    { name: 'Tosta de tomate triturado y jamón ibérico', price: '6.50€' },
-    { name: 'Tosta vegetal con aguacate, tomate y huevo', price: '5.50€' },
-    { name: 'Escalivada de anchoas', price: '5.50€' },
-  ];
+  const [meriendaList, setMeriendaList] = useState([]);
+
+  useEffect(() => {
+    async function fetchMeriendas() {
+      const meriendas = await getMeriendas();
+      setMeriendaList(meriendas);
+    }
+
+    fetchMeriendas();
+  }, []);
 
   return (
     <section className="merienda-section">
-      <h2 className="merienda-title">CAFÉS</h2>
+      <h2 className="merienda-title">Meriendas</h2>
       <p className="merienda-description">
 Nuestras meriendas acompañadas de cafés especiales, refresco o zumo natural
 </p>
@@ -22,9 +25,9 @@ Nuestras meriendas acompañadas de cafés especiales, refresco o zumo natural
         {meriendaList.map((merienda, index) => (
           <li key={index} className="merienda-item">
             <div className="merienda-info">
-              <h3>{merienda.name}</h3>
+              <h3>{merienda.tipo}</h3>
             </div>
-            <div className="merienda-price">{merienda.price}</div>
+            <div className="merienda-price">{merienda.precio}€</div>
           </li>
         ))}
       </ul>

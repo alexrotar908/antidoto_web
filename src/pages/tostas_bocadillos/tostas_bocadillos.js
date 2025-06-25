@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../tostas_bocadillos/tostas_bocadillos.css';
+import { getTostas } from './tostasService';
+import { getBocadillos } from './bocadillosService';
 
-const tostas = [
-  { nombre: 'Solomillo ibérico, queso brie & cebolla', precio: '5.50€' },
-  { nombre: 'Queso de cabra con tomates cherry marinados & nueces', precio: '5.50€' },
-  { nombre: 'Salmón, aguacate & eneldo', precio: '5.50€' },
-  { nombre: 'Jamón ibérico & tomate triturado', precio: '6.50€' },
-  { nombre: 'Vegetal con aguacate, tomate & huevo', precio: '5.50€' },
-  { nombre: 'Escalivada de anchoas', precio: '5.50€' }
-];
 
-const bocadillos = [
-  { nombre: 'Calamares', precio: '7.50€' },
-  { nombre: 'Oreja c/salsa brava', precio: '7.50€' },
-  { nombre: 'Panceta ibérica', precio: '7.50€' },
-  { nombre: 'Solomillo ibérico & queso brie', precio: '9.00€' },
-  { nombre: 'Jamón ibérico & tomate', precio: '9.00€' },
-  { nombre: 'Boquerones / Anchoas', precio: '7.50€' }
-];
 
 const TostasBocadillos = () => {
+
+  const [tostas, setTostas] = useState([]);
+  const [bocadillos, setBocadillos] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const tostas = await getTostas();
+      const bocadillos = await getBocadillos();
+      setTostas(tostas);
+      setBocadillos(bocadillos);
+    }
+
+    fetchData();
+  }, []);
   return (
     <div className="tostas-bocadillos-container">
       <div className="card bocadillos">
@@ -28,7 +28,7 @@ const TostasBocadillos = () => {
         <ul>
           {bocadillos.map((item, index) => (
             <li key={index}>
-              {item.nombre} <span className="price">{item.precio}</span>
+              {item.tipo} <span className="price">{item.precio}€</span>
             </li>
           ))}
         </ul>
@@ -39,7 +39,7 @@ const TostasBocadillos = () => {
         <ul>
           {tostas.map((item, index) => (
             <li key={index}>
-              {item.nombre} <span className="price">{item.precio}</span>
+              {item.tipo} <span className="price">{item.precio}€</span>
             </li>
           ))}
         </ul>

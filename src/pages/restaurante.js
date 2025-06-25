@@ -5,7 +5,7 @@ import desayunoImg from '../imagenes_desayuno/churros.jpg';
 import comidaImg from '../imagenes/comida.jpg';
 import bocadilloImg from '../imagenes_bocadillo/bocadillo.jpg';
 import menuImg from '../imagenes_menu/menu_del_dia.png';
-import bebidaImg from '../imagenes_bebidas/bebidas.jpg';
+import bebidaImg from '../imagenes_bebidas/bebida.jpg';
 import './restaurante.css';
 
 const Restaurante = () => {

@@ -1,29 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './sartenes.css';
+import { getSartenes } from './sartenesService';
 
 
 
 function Sartenes() {
-  const sartenesList = [
-    { 
-      name: 'Huevos rotos con jamón ibérico',  
-      price: '14.00€',
-    },
-    { 
-      name: 'Huevos rotos con gulas y gambas', 
-      price: '14.00€',
-    },
-    { 
-      name: 'Rabo de toro estofado', 
-      price: '16.00€',
-    },
-    { 
-      name: 'Callos a la asturiana (un clásico)', 
-      price: '15.00€',
-    },
-
-  ];
+  const [sartenesList, setSartenesList] = useState([]);
+  
+    useEffect(() => {
+      async function fetchSartenes() {
+        const sartenes_cuchara = await getSartenes();
+        setSartenesList(sartenes_cuchara);
+      }
+  
+      fetchSartenes();
+    }, []);
 
   return (
     <section className="sartenes-section">
@@ -32,9 +24,9 @@ function Sartenes() {
         {sartenesList.map((sartenes, index) => (
           <li key={index} className="sartenes-item">
             <div className="sartenes-info">
-              <h3>{sartenes.name}</h3>
+              <h3>{sartenes.tipo}</h3>
             </div>
-            <div className="sartenes-price">{sartenes.price}</div>
+            <div className="sartenes-price">{sartenes.precio}€</div>
           </li>
         ))}
       </ul>

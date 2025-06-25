@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../dulces_salados/dulces_salados.css';
+import { getDulces } from '../dulces_salados/dulcesService';
+import { getSalados } from '../dulces_salados/saladosService';
 
 function Dulces() {
-  const dulcesList = [
-    { name: 'Churros o porras', price: '3.20€' },
-    { name: 'Bollería', price: '3.20€' },
-    { name: 'Tostada con mantequilla y mermelada', price: '3.20€' },
-    { name: 'Croissant con mantequilla y mermelada', price: '3.20€' },
-  ];
+  const [dulcesList, setDulcesList] = useState([]);
+  const [saladosList, setSaladosList] = useState([]);
 
-  const saladosList = [
-    { name: 'Tostada o barrita integral con tomate y aceite de oliva', price: '3.20€' },
-    { name: 'Sándwich mixto o vegetal', price: '6.50€' },
-    { name: 'Café blanco y negro', price: '5.50€' },
-  ];
+  useEffect(() => {
+    async function fetchData() {
+      const dulces = await getDulces();
+      const salados = await getSalados();
+      setDulcesList(dulces);
+      setSaladosList(salados);
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <section className="dulce-section">
@@ -28,9 +31,9 @@ function Dulces() {
             {dulcesList.map((item, index) => (
               <li key={index} className="dulce-item">
                 <div className="dulce-info">
-                  <h4>{item.name}</h4>
+                  <h4>{item.tipo}</h4>
                 </div>
-                <div className="dulce-price">{item.price}</div>
+                <div className="dulce-price">{item.precio}€</div>
               </li>
             ))}
           </ul>
@@ -43,9 +46,9 @@ function Dulces() {
             {saladosList.map((item, index) => (
               <li key={index} className="dulce-item">
                 <div className="dulce-info">
-                  <h4>{item.name}</h4>
+                  <h4>{item.tipo}</h4>
                 </div>
-                <div className="dulce-price">{item.price}</div>
+                <div className="dulce-price">{item.precio}€</div>
               </li>
             ))}
           </ul>

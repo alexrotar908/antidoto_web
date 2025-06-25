@@ -1,29 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './ensaladas.css';
+import { getEnsaladas } from './ensaladasService';
 
 
 
 function Ensaladas() {
-  const ensaladasList = [
-    { 
-      name: 'Ensalada griega (queso feta caliente)',  
-      price: '13.50€',
-    },
-    { 
-      name: 'Burrata sobre tomate cherry', 
-      price: '13.00€',
-    },
-    { 
-      name: 'Tomate con ventresca y cebolla morada', 
-      price: '14.50€',
-    },
-    { 
-      name: 'Ensalada de queso de cabra y nueces', 
-      price: '14.50€',
-    },
+   const [ensaladasList, setEnsaladasList] = useState([]);
+   
+     useEffect(() => {
+       async function fetchEnsaladas() {
+         const ensaladas = await getEnsaladas();
+         setEnsaladasList(ensaladas);
+       }
+   
+       fetchEnsaladas();
+     }, []);
 
-  ];
 
   return (
     <section className="ensaladas-section">
@@ -32,9 +25,9 @@ function Ensaladas() {
         {ensaladasList.map((ensaladas, index) => (
           <li key={index} className="ensaladas-item">
             <div className="ensaladas-info">
-              <h3>{ensaladas.name}</h3>
+              <h3>{ensaladas.tipo}</h3>
             </div>
-            <div className="ensaladas-price">{ensaladas.price}</div>
+            <div className="ensaladas-price">{ensaladas.precio}€</div>
           </li>
         ))}
       </ul>

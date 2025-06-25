@@ -20,6 +20,18 @@ const About = () => {
         <p>
           El equipo fundador está formado por tres jóvenes emprendedores madrileños: Laura, Iván y Sergio, quienes decidieron unir sus conocimientos en cocina, atención al cliente y diseño para crear algo auténtico.
         </p>
+
+          <h2>Ven a conocernos</h2>
+        <p>“Dicen que el vino es el único arte que se puede beber”.</p>
+        <p>
+          Estás cerca, ven a conocernos, estamos en la calle Baeza 11 en Chamartín.
+        </p>
+        <p>
+          Cada persona es un mundo, nosotros te acompañamos para que tus reuniones familiares o las magníficas quedadas de amigos sean especiales.
+        </p>
+        <p>
+          La cerveza fría, la variedad de vinos y los platos tradicionales con un sabor exquisito harán que los momentos sean únicos...
+        </p>
       </div>
 
       <div className="columna derecha">
@@ -29,7 +41,8 @@ const About = () => {
         <p><strong>Domingo:</strong> 10:00 AM - 05:00 PM</p>
 
         <h2>Contacto</h2>
-        <p>Teléfono: 917177628</p>
+        <p>Reservas: 917 17 76 28</p>
+        <p>Teléfono: 681 949 442</p>
         <p>E-mail: antidoto1973@gmail.com </p>
 
         <h2>Ubicación</h2>

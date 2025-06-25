@@ -1,24 +1,21 @@
-import React from 'react';
+import React,{ useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './arroces.css';
+import { getArroces } from './arrocesService';
 
 
 
 function Arroces() {
-  const arrocesList = [
-    { 
-      name: 'Paella de verdura',  
-      price: '15.50€/pers.',
-    },
-    { 
-      name: 'Paella mixta', 
-      price: '16.00€/pers.',
-    },
-    { 
-      name: 'Paella de marisco', 
-      price: '16.00€/pers.',
-    }
-  ];
+ const [arrocesList, setArrocesList] = useState([]);
+    
+      useEffect(() => {
+        async function fetchArroces() {
+          const arroces = await getArroces();
+          setArrocesList(arroces);
+        }
+    
+        fetchArroces();
+      }, []);
 
   return (
     <section className="arroces-section">
@@ -28,9 +25,9 @@ function Arroces() {
         {arrocesList.map((arroces, index) => (
           <li key={index} className="arroces-item">
             <div className="arroces-info">
-              <h3>{arroces.name}</h3>
+              <h3>{arroces.tipo}</h3>
             </div>
-            <div className="arroces-price">{arroces.price}</div>
+            <div className="arroces-price">{arroces.precio}€/pers.</div>
           </li>
         ))}
       </ul>

@@ -1,28 +1,21 @@
-import React from 'react';
+import React,{ useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './pecar.css';
+import { getPecar } from './pecarService';
 
 
 
 function Pecar() {
-  const pecarList = [
-    { 
-      name: 'Piña a la brasa con helado y nata',  
-      price: '7.00€',
-    },
-    { 
-      name: 'Tarta de queso casera', 
-      price: '7.00€.',
-    },
-    { 
-      name: 'Queso y membrillo acompañado de su copa de cava', 
-      price: '10.00€',
-    },
-    { 
-      name: 'El postre del chef', 
-      price: '6.50€',
-    }
-  ];
+  const [pecarList, setPecarList] = useState([]);
+         
+           useEffect(() => {
+             async function fetchPecar() {
+               const pecar = await getPecar();
+               setPecarList(pecar);
+             }
+         
+             fetchPecar();
+           }, []);
 
   return (
     <section className="pecar-section">
@@ -31,9 +24,9 @@ function Pecar() {
         {pecarList.map((pecar, index) => (
           <li key={index} className="pecar-item">
             <div className="pecar-info">
-              <h3>{pecar.name}</h3>
+              <h3>{pecar.tipo}</h3>
             </div>
-            <div className="pecar-price">{pecar.price}</div>
+            <div className="pecar-price">{pecar.precio}€</div>
           </li>
         ))}
       </ul>

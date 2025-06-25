@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './comida.css';  
-import entrantesImg from '../../imagenes/croquetas.jpg';
+import entrantesImg from '../../imagenes/berenjena.jpg';
 import huevosRotosImg from '../../imagenes/huevos-rotos.jpg';
-import ensaladaImg from '../../imagenes/ensalada_griega.jpg';
-import pescadoImg from '../../imagenes/pescado.png';
-import carnesImg from '../../imagenes/entrecot_tronchado.jpg';
+import ensaladaImg from '../../imagenes/ensalada.jpg';
+import pescadoImg from '../../imagenes/marisco.jpg';
+import carnesImg from '../../imagenes/carne.jpg';
 import arrocesImg from '../../imagenes/paella_mixta.jpg';
 import pecarImg from '../../imagenes/tarta_queso.jpg';
 
