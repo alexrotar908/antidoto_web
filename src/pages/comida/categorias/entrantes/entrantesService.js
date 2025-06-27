@@ -19,19 +19,43 @@ export async function updateEntrante(id, fields) {
     .from('entrantes')
     .update(fields)
     .eq('id', id);
-  if (error) console.error('Error updating entrante:', error);
+
+  if (error) {
+    console.error('Error updating entrantes:', error);
+    return false; 
+  }
+
+  return true; 
 }
 
 
-export async function addEntrante(nuevoPlato) {
+export const addEntrante = async (nuevoPlato) => {
   const { data, error } = await supabase
     .from('entrantes')
-    .insert([nuevoPlato]);
+    .insert(nuevoPlato)
+    .select(); // 👈 Esto es lo que asegura que devuelva el nuevo objeto con su id
 
   if (error) {
-    console.error('Error al añadir:', error);
+    console.error('Error al insertar plato:', error);
     return null;
   }
 
-  return data[0]; // devolvemos el plato creado
-}
+  return data[0]; // el nuevo plato insertado
+};
+
+export const deleteEntrante = async (id) => {
+  const { error } = await supabase
+    .from('entrantes')
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    console.error('Error al eliminar plato:', error);
+    return false;
+  }
+
+  return true;
+};
+
+
+

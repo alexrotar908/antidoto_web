@@ -5,20 +5,27 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  overflow-x: auto;          /* permite deslizar horizontalmente */
-  white-space: nowrap;       /* evita que los enlaces se apilen */
+  overflow-x: auto;              /* permite deslizar horizontalmente */
+  white-space: nowrap;           /* evita que los enlaces se apilen */
   -webkit-overflow-scrolling: touch; /* scroll suave en iOS */
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
 }
 
 .navbar a {
   color: #ffffff;
   text-decoration: none;
-  margin: 0 20px;
   font-weight: 600;
   font-size: 16px;
   transition: color 0.3s, border-bottom 0.3s;
   padding-bottom: 5px;
-  display: inline-block;     /* importante para scroll horizontal */
+  display: inline-block;         /* importante para scroll horizontal */
 }
 
 /* Hover */
@@ -32,7 +39,7 @@
 /* -------------------------- */
 @media (max-width: 768px) {
   .navbar {
-    flex-wrap: nowrap;         /* evita salto de línea */
+    flex-wrap: nowrap;           /* evita salto de línea */
     justify-content: flex-start;
     padding: 10px;
     overflow-x: auto;
