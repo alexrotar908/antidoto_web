@@ -30,7 +30,7 @@ const About = () => {
           Cada persona es un mundo, nosotros te acompañamos para que tus reuniones familiares o las magníficas quedadas de amigos sean especiales.
         </p>
         <p>
-          La cerveza fría, la variedad de vinos y los platos tradicionales con un sabor exquisito harán que los momentos sean únicos...
+          La cerveza fría, la variedad de vinos y los platos tradicionales con un sabor exquisito harán que los momentos sean únicos... aaaaa
         </p>
       </div>
 
