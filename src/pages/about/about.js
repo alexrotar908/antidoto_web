@@ -8,7 +8,7 @@ const About = () => {
         <h1 className="tiulos">Sobre Nosotros</h1>
         <h2>Historia</h2>
         <p>
-          Antídoto nació en el corazón de Madrid con la idea de ser más que un bar. Fundado por un grupo de amigos apasionados por la gastronomía y el buen ambiente, el local abrió sus puertas con la intención de ofrecer una experiencia única que combina tradición, creatividad y cercanía.
+          Antídoto nació en el corazón de Madrid en el barrio de la concepción.
         </p>
 
         <h2>Filosofía</h2>
@@ -18,7 +18,7 @@ const About = () => {
 
         <h2>Fundadores</h2>
         <p>
-          El equipo fundador está formado por tres jóvenes emprendedores madrileños: Laura, Iván y Sergio, quienes decidieron unir sus conocimientos en cocina, atención al cliente y diseño para crear algo auténtico.
+          Fundador: Cristina Tatu Maties
         </p>
 
           <h2>Ven a conocernos</h2>

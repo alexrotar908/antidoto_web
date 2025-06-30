@@ -1,7 +1,7 @@
 import React from 'react';
 import '../home/home.css';
 import logo from '../../imagen_icono/icono_antidoto.jpeg'
-import barImage from '../imagenes/bar.jpg';
+import barImage from '../imagenes/bar_imagen.jpg';
 
 function Home() {
   return (

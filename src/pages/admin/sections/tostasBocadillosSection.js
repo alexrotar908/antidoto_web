@@ -1,0 +1,154 @@
+import React, { useEffect, useState } from 'react';
+import { serviciosTostasBocadillos } from '../utils/serviciosTostasBocadillos';
+
+export default function TostasBocadillosSection() {
+ // Estados tostas y bocadillos
+   const [categoriaTostasBocadillos, setCategoriaTostasBocadillos] = useState('tostas');
+   const [platosTostasBocadillos, setPlatosTostasBocadillos] = useState([]);
+   const [nuevoTostasBocadillos, setNuevoTostasBocadillos] = useState({ tipo: '', precio: '' })
+ 
+
+  useEffect(() => {
+    // Obtener platos comida
+    serviciosTostasBocadillos[categoriaTostasBocadillos].get().then(setPlatosTostasBocadillos);
+    setNuevoTostasBocadillos({ tipo: '', precio: ''});
+  }, [categoriaTostasBocadillos]);
+
+  // Handler Tostas y Bocadillos
+const handleChangeTostasBocadillos = (e, id, field) => {
+  const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+  setPlatosTostasBocadillos(prev =>
+    prev.map(item => (item.id === id ? { ...item, [field]: value } : item))
+  );
+};
+
+// Guardar sin alert
+const handleGuardarTostasBocadillos = async (id) => {
+  const item = platosTostasBocadillos.find(i => i.id === id);
+  if (!item) return;
+
+  const payload = {
+    tipo: item.tipo,
+    precio: parseFloat(item.precio)
+  };
+
+  try {
+    await serviciosTostasBocadillos[categoriaTostasBocadillos].update(id, payload);
+  } catch (error) {
+    console.error('Error al guardar tosta o bocadillo:', error);
+  }
+};
+
+// Eliminar sin confirmación
+const handleEliminarTostasBocadillos = async (id) => {
+  try {
+    await serviciosTostasBocadillos[categoriaTostasBocadillos].delete(id);
+    setPlatosTostasBocadillos(prev => prev.filter(i => i.id !== id));
+  } catch (error) {
+    console.error('Error al eliminar tosta o bocadillo:', error);
+  }
+};
+
+// Crear nuevo item
+const handleCrearTostasBocadillos = async () => {
+  if (!nuevoTostasBocadillos.tipo.trim() || !nuevoTostasBocadillos.precio) return;
+
+  const payload = {
+    tipo: nuevoTostasBocadillos.tipo.trim(),
+    precio: parseFloat(nuevoTostasBocadillos.precio)
+  };
+
+  try {
+    const creado = await serviciosTostasBocadillos[categoriaTostasBocadillos].add(payload);
+    if (creado) {
+      setPlatosTostasBocadillos(prev => [...prev, creado]);
+      setNuevoTostasBocadillos({ tipo: '', precio: '' });
+    }
+  } catch (error) {
+    console.error('Error al crear tosta o bocadillo:', error);
+  }
+};
+ 
+
+   return (
+
+     <section>
+  <h2>Tostas y Bocadillos</h2>
+  <label>
+    Categoría:
+    <select value={categoriaTostasBocadillos} onChange={e => setCategoriaTostasBocadillos(e.target.value)}>
+      {Object.keys(serviciosTostasBocadillos).map(cat => (
+        <option key={cat} value={cat}>
+          {cat.charAt(0).toUpperCase() + cat.slice(1)}
+        </option>
+      ))}
+    </select>
+  </label>
+
+  <div className="tabla-admin">
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {platosTostasBocadillos.map(({ id, tipo, precio }) => (
+          <tr key={id}>
+            <td>
+              <input
+                type="text"
+                value={tipo}
+                onChange={e => handleChangeTostasBocadillos(e, id, 'tipo')}
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                min="0"
+                step="0.01"
+                value={precio}
+                onChange={e => handleChangeTostasBocadillos(e, id, 'precio')}
+              />
+            </td>
+            <td>
+              <button className="btn-guardar" onClick={() => handleGuardarTostasBocadillos(id)}>Guardar</button>
+              <button className="btn-eliminar" onClick={() => handleEliminarTostasBocadillos(id)}>Eliminar</button>
+            </td>
+          </tr>
+        ))}
+
+        {/* Fila para nuevo plato */}
+        <tr>
+          <td>
+            <input
+              type="text"
+              placeholder="Nuevo tipo"
+              value={nuevoTostasBocadillos.tipo}
+              onChange={e => setNuevoTostasBocadillos(prev => ({ ...prev, tipo: e.target.value }))}
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              min="0"
+              step="0.01"
+              placeholder="Precio"
+              value={nuevoTostasBocadillos.precio}
+              onChange={e => setNuevoTostasBocadillos(prev => ({ ...prev, precio: e.target.value }))}
+            />
+          </td>
+          <td>
+            <button className="btn-crear" onClick={handleCrearTostasBocadillos}>Crear</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+      
+    );
+  }
+  

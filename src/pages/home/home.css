@@ -58,7 +58,8 @@
 }
 
 .home-logo {
-  max-width: 180px;
+  max-width: 300px;
+  max-height: 300px;
   margin-bottom: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(63, 145, 221, 0.4);
