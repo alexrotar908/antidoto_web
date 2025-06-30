@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './navbar.css';
 
 const ADMIN_KEY = 'antidotoSuperClave2024';
@@ -7,6 +8,8 @@ const ADMIN_KEY = 'antidotoSuperClave2024';
 function Navbar() {
   const location = useLocation();
   const [isAdmin, setIsAdmin] = useState(false);
+
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -17,26 +20,32 @@ function Navbar() {
       setIsAdmin(true);
     } else {
       const savedKey = sessionStorage.getItem('adminKey');
-      if (savedKey === ADMIN_KEY) {
-        setIsAdmin(true);
-      } else {
-        setIsAdmin(false);
-      }
+      setIsAdmin(savedKey === ADMIN_KEY);
     }
   }, [location]);
 
-  const adminLink = isAdmin ? <li><Link to={`/admin?key=${ADMIN_KEY}`}>Admin</Link></li> : null;
+  const adminLink = isAdmin ? <li><Link to={`/admin?key=${ADMIN_KEY}`}>{t('admin')}</Link></li> : null;
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <nav className="navbar">
-      <ul>
-        <li><Link to="/">Inicio</Link></li>
-        <li><Link to="/restaurante">Restaurante</Link></li>
-        <li><Link to="/reservas">Reservas</Link></li>
-        <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
-        {adminLink}
-      </ul>
+     <ul className="nav-links">
+      <li><Link to="/">{t('inicio')}</Link></li>
+      <li><Link to="/restaurante">{t('restaurante.title')}</Link></li>
+      <li><Link to="/reservas">{t('reservas')}</Link></li>
+      <li><Link to="/sobre-nosotros">{t('sobreNosotros')}</Link></li>
+           {adminLink}
+     </ul>
+
+     <div className="language-selector">
+       <button onClick={() => changeLanguage('es')}>{t('espanol')}</button>
+       <button onClick={() => changeLanguage('en')}>{t('ingles')}</button>
+     </div>
     </nav>
+
   );
 }
 

@@ -22,7 +22,8 @@
 }
 
 .reserva-form input,
-.reserva-form textarea {
+.reserva-form textarea
+.reserva-form select {
   padding: 0.8rem;
   border-radius: 10px;
   border: none;
@@ -33,7 +34,8 @@
 }
 
 .reserva-form input:focus,
-.reserva-form textarea:focus {
+.reserva-form textarea:focus
+.reserva-form select:focus {
   outline: none;
   box-shadow: 0 0 5px 2px gold;
 }
@@ -54,6 +56,8 @@
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+
 
 .reserva-form button:hover {
   background-color: gold;
@@ -88,7 +92,8 @@
   }
 
   .reserva-form input,
-  .reserva-form textarea {
+  .reserva-form textarea
+  .reserva-form select {
     font-size: 0.95rem;
     padding: 0.7rem;
   }

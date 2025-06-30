@@ -59,6 +59,17 @@ const About = () => {
             title="Mapa del restaurante Antídoto"
           ></iframe>
         </div>
+
+        {/* Opción 1: Enlace para descargar o abrir el PDF */}
+        <h2 className="reportaje-titulo">
+          REPORTAJE "ANTÍDOTO BAR RESTAURANTE" <br />Javier Hernández
+        </h2>
+        <p>
+         <a href="/reportaje_antidoto_bar_restaurante_cristina_tatu_maties.pdf" target="_blank" rel="noopener noreferrer" className="pdf-link">
+           Ver el reportaje en PDF
+         </a>
+        </p>
+
       </div>
     </div>
   );

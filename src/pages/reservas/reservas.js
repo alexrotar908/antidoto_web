@@ -77,6 +77,67 @@ const Reservas = () => {
     }
   };
 
+  const today = new Date().toISOString().split('T')[0];
+ 
+   const getOpcionesHora = () => {
+  const opciones = [];
+  const ahora = new Date();
+  const hoy = today;
+  const fechaSeleccionada = new Date(formData.fecha);
+  const diaSemana = fechaSeleccionada.getDay(); // 0: domingo, 6: sábado
+
+  let horaApertura = 0;
+  let horaCierre = 23;
+
+  // Definir rango de apertura por día de la semana
+  if (diaSemana >= 1 && diaSemana <= 5) { // lunes a viernes
+    horaApertura = 8;
+    horaCierre = 24;
+  } else if (diaSemana === 6) { // sábado
+    horaApertura = 10;
+    horaCierre = 24;
+  } else if (diaSemana === 0) { // domingo
+    horaApertura = 10;
+    horaCierre = 17;
+  }
+
+  let horaInicio = horaApertura;
+  let minutoInicio = 0;
+
+  if (formData.fecha === hoy) {
+    ahora.setHours(ahora.getHours() + 1);
+    const proximaHora = ahora.getHours();
+    const proximoMinuto = ahora.getMinutes();
+
+    // Asegurarse que no sea antes del horario de apertura
+    if (proximaHora > horaApertura || (proximaHora === horaApertura && proximoMinuto > 0)) {
+      horaInicio = proximaHora;
+      minutoInicio = proximoMinuto;
+    }
+  }
+
+  for (let h = horaInicio; h < horaCierre; h++) {
+    for (let m of [0, 15, 30, 45]) {
+      if (
+        h > horaInicio || 
+        (h === horaInicio && m >= minutoInicio)
+      ) {
+        const hh = String(h).padStart(2, '0');
+        const mm = String(m).padStart(2, '0');
+        opciones.push(`${hh}:${mm}`);
+      }
+    }
+  }
+
+  // Agregar 00:00 si está abierto hasta las 00:00
+  if (horaCierre === 24 && (horaInicio <= 23 || formData.fecha !== hoy)) {
+    opciones.push("00:00");
+  }
+
+  return opciones;
+};
+
+
   return (
 
     <div className="reservas-container">
@@ -127,14 +188,19 @@ const Reservas = () => {
             value={formData.fecha}
             onChange={handleChange}
             required
+            min={today}
           />
-          <input
-            type="time"
+          <select
             name="hora"
             value={formData.hora}
             onChange={handleChange}
             required
-          />
+          >
+            <option value="">Selecciona una hora</option>
+            {getOpcionesHora().map((hora) => (
+              <option key={hora} value={hora}>{hora}</option>
+            ))}
+          </select>
           <textarea
             name="comentarios"
             placeholder="Comentarios especiales (opcional)"

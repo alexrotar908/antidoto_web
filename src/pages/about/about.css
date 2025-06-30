@@ -65,6 +65,34 @@ strong {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
+.reportaje-titulo {
+  color: #4a90e2;
+  font-size: 1.4rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+  margin-top: 30px;
+  text-align: center; 
+  font-weight: 700;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pdf-link {
+  color: #357ABD;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.pdf-link:hover {
+  color: gold;
+}
+
+.pdf-container iframe {
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
 /* Estilos para móvil */
 @media (max-width: 768px) {
   .sobre-nosotros-layout {

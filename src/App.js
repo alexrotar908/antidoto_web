@@ -22,11 +22,17 @@ import MenuDelDia from './pages/menu_del_dia/menu_del_dia';
 import Bebidas from './pages/bebidas/bebidas';
 import Vino from './pages/bebidas/vino/vino';
 import AdminEditor from './pages/admin/admin';
+import { useTranslation, Trans } from 'react-i18next'; 
 import './App.css';
 
 
 
 function App() {
+
+  const { t } = useTranslation();
+
+  const currentYear = new Date().getFullYear();
+
   return (
     <Router>
       <div className="app-container">
@@ -58,8 +64,12 @@ function App() {
           </Routes>
         </main>
         <footer className="footer">
-             <div className="footer-left"> &copy; {new Date().getFullYear()} Antídoto · Madrid</div>
-             <div className="footer-right">Sitio web realizado por <span className="autor-resaltado">Ai Creations Lex</span></div>
+          <div className="footer-left">{t('footerLeft', { year: currentYear })}</div>
+          <div className="footer-right">
+            <Trans i18nKey="footerRight">
+             <span className="autor-resaltado"></span>
+            </Trans>
+          </div>
         </footer>
       </div>
     </Router>
