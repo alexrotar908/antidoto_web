@@ -5,23 +5,23 @@ const About = () => {
   return (
     <div className="sobre-nosotros-layout">
       <div className="columna izquierda">
-        <h1 className="tiulos">Sobre Nosotros</h1>
-        <h2>Historia</h2>
+        <h1 className="titulos">Sobre Nosotros</h1>
+        <h2 className="subtitulos">Historia</h2>
         <p>
           Antídoto nació en el corazón de Madrid en el barrio de la concepción.
         </p>
 
-        <h2>Filosofía</h2>
+        <h2 className="subtitulos">Filosofía</h2>
         <p>
           Creemos en el poder de la buena comida, el buen trato y los espacios que invitan a quedarse. Antídoto no es solo un lugar para comer o tomar algo, es un punto de encuentro para disfrutar, compartir y desconectar.
         </p>
 
-        <h2>Fundadores</h2>
+        <h2 className="subtitulos">Fundadores</h2>
         <p>
           Fundador: Cristina Tatu Maties
         </p>
 
-          <h2>Ven a conocernos</h2>
+          <h2 className="subtitulos">Ven a conocernos</h2>
         <p>“Dicen que el vino es el único arte que se puede beber”.</p>
         <p>
           Estás cerca, ven a conocernos, estamos en la calle Baeza 11 en Chamartín.
@@ -35,17 +35,17 @@ const About = () => {
       </div>
 
       <div className="columna derecha">
-        <h2>Horario</h2>
+        <h2 className="subtitulos">Horario</h2>
         <p><strong>Lunes a Viernes:</strong> 08:00 AM - 12:00 AM</p>
         <p><strong>Sábado:</strong> 10:00 AM - 12:00 AM</p>
         <p><strong>Domingo:</strong> 10:00 AM - 05:00 PM</p>
 
-        <h2>Contacto</h2>
+        <h2 className="subtitulos">Contacto</h2>
         <p>Reservas: 917 17 76 28</p>
         <p>Teléfono: 681 949 442</p>
         <p>E-mail: antidoto1973@gmail.com </p>
 
-        <h2>Ubicación</h2>
+        <h2 className="subtitulos">Ubicación</h2>
         <p>C/ de Baeza, 11, Chamartín, 28002 Madrid</p>
         <div className="mapa-container">
           <iframe

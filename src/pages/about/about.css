@@ -18,6 +18,14 @@
   margin-bottom: 40px;
 }
 
+.subtitulos {
+  color: #4a90e2;
+   font-size: 1.4rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
+  margin-top: 30px;
+}
+
 .columna {
   flex: 1;
   margin: 0 30px;
