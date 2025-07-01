@@ -3,7 +3,12 @@ import { serviciosMenuDelDia } from "../utils/serviciosMenuDelDia";
 
 export default function MenuDelDiaSection() {
   const [menu, setMenu] = useState(null);
-  const [nuevoPlato, setNuevoPlato] = useState({ tipo: "primero", plato: "" });
+  const [nuevoPlato, setNuevoPlato] = useState({
+    tipo: "primero",
+    plato: "",
+    plato_es: "",
+    plato_en: ""
+  });
   const [nuevoPrecio, setNuevoPrecio] = useState("");
 
   useEffect(() => {
@@ -18,15 +23,15 @@ export default function MenuDelDiaSection() {
     cargarMenu();
   }, []);
 
-  const handleChangePlato = (index, nuevoTexto) => {
+  const handleChangePlato = (index, field, value) => {
     const actualizado = [...menu.menu_platos];
-    actualizado[index].plato = nuevoTexto;
+    actualizado[index][field] = value;
     setMenu({ ...menu, menu_platos: actualizado });
   };
 
   const guardarPlato = async (index) => {
-    const plato = menu.menu_platos[index];
-    await serviciosMenuDelDia.updatePlato(plato.id, plato.plato);
+    const { id, plato, plato_es, plato_en } = menu.menu_platos[index];
+    await serviciosMenuDelDia.updatePlato(id, { plato, plato_es, plato_en });
   };
 
   const eliminar = async (id) => {
@@ -45,7 +50,9 @@ export default function MenuDelDiaSection() {
     const creado = await serviciosMenuDelDia.addPlato(
       menu.id,
       nuevoPlato.tipo,
-      nuevoPlato.plato.trim()
+      nuevoPlato.plato.trim(),
+      nuevoPlato.plato_es.trim(),
+      nuevoPlato.plato_en.trim()
     );
 
     if (creado) {
@@ -53,7 +60,12 @@ export default function MenuDelDiaSection() {
         ...prev,
         menu_platos: [...prev.menu_platos, creado],
       }));
-      setNuevoPlato({ tipo: "primero", plato: "" });
+      setNuevoPlato({
+        tipo: "primero",
+        plato: "",
+        plato_es: "",
+        plato_en: ""
+      });
     }
   };
 
@@ -91,6 +103,8 @@ export default function MenuDelDiaSection() {
             <thead>
               <tr>
                 <th>Plato</th>
+                <th>Plato (ES)</th>
+                <th>Plato (EN)</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -102,30 +116,27 @@ export default function MenuDelDiaSection() {
                     <td>
                       <input
                         type="text"
-                        value={plato.plato}
-                        onChange={(e) =>
-                          handleChangePlato(
-                            menu.menu_platos.findIndex(p => p.id === plato.id),
-                            e.target.value
-                          )
-                        }
+                        value={plato.plato || ''}
+                        onChange={(e) => handleChangePlato(index, 'plato', e.target.value)}
                       />
                     </td>
                     <td>
-                      <button
-                        className="btn-guardar"
-                        onClick={() =>
-                          guardarPlato(menu.menu_platos.findIndex(p => p.id === plato.id))
-                        }
-                      >
-                        Guardar
-                      </button>
-                      <button
-                        className="btn-eliminar"
-                        onClick={() => eliminar(plato.id)}
-                      >
-                        Eliminar
-                      </button>
+                      <input
+                        type="text"
+                        value={plato.plato_es || ''}
+                        onChange={(e) => handleChangePlato(index, 'plato_es', e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        value={plato.plato_en || ''}
+                        onChange={(e) => handleChangePlato(index, 'plato_en', e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <button className="btn-guardar" onClick={() => guardarPlato(index)}>Guardar</button>
+                      <button className="btn-eliminar" onClick={() => eliminar(plato.id)}>Eliminar</button>
                     </td>
                   </tr>
                 ))}
@@ -154,6 +165,18 @@ export default function MenuDelDiaSection() {
           placeholder="Nombre del plato"
           value={nuevoPlato.plato}
           onChange={(e) => setNuevoPlato({ ...nuevoPlato, plato: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Plato (ES)"
+          value={nuevoPlato.plato_es}
+          onChange={(e) => setNuevoPlato({ ...nuevoPlato, plato_es: e.target.value })}
+        />
+        <input
+          type="text"
+          placeholder="Plato (EN)"
+          value={nuevoPlato.plato_en}
+          onChange={(e) => setNuevoPlato({ ...nuevoPlato, plato_en: e.target.value })}
         />
         <button className="btn-crear" onClick={crearPlato}>Crear</button>
       </div>

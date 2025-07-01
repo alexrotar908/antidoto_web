@@ -5,13 +5,13 @@ export default function TostasBocadillosSection() {
  // Estados tostas y bocadillos
    const [categoriaTostasBocadillos, setCategoriaTostasBocadillos] = useState('tostas');
    const [platosTostasBocadillos, setPlatosTostasBocadillos] = useState([]);
-   const [nuevoTostasBocadillos, setNuevoTostasBocadillos] = useState({ tipo: '', precio: '' })
+   const [nuevoTostasBocadillos, setNuevoTostasBocadillos] = useState({ tipo: '', tipo_es: '', tipo_en: '', precio: '' })
  
 
   useEffect(() => {
     // Obtener platos comida
     serviciosTostasBocadillos[categoriaTostasBocadillos].get().then(setPlatosTostasBocadillos);
-    setNuevoTostasBocadillos({ tipo: '', precio: ''});
+    setNuevoTostasBocadillos({ tipo: '', tipo_es: '', tipo_en: '', precio: ''});
   }, [categoriaTostasBocadillos]);
 
   // Handler Tostas y Bocadillos
@@ -29,6 +29,8 @@ const handleGuardarTostasBocadillos = async (id) => {
 
   const payload = {
     tipo: item.tipo,
+    tipo_es: item.tipo_es || '',
+    tipo_en: item.tipo_en || '',
     precio: parseFloat(item.precio)
   };
 
@@ -37,6 +39,7 @@ const handleGuardarTostasBocadillos = async (id) => {
   } catch (error) {
     console.error('Error al guardar tosta o bocadillo:', error);
   }
+
 };
 
 // Eliminar sin confirmación
@@ -55,6 +58,8 @@ const handleCrearTostasBocadillos = async () => {
 
   const payload = {
     tipo: nuevoTostasBocadillos.tipo.trim(),
+    tipo_es: nuevoTostasBocadillos.tipo_es.trim(),
+    tipo_en: nuevoTostasBocadillos.tipo_en.trim(),
     precio: parseFloat(nuevoTostasBocadillos.precio)
   };
 
@@ -62,11 +67,17 @@ const handleCrearTostasBocadillos = async () => {
     const creado = await serviciosTostasBocadillos[categoriaTostasBocadillos].add(payload);
     if (creado) {
       setPlatosTostasBocadillos(prev => [...prev, creado]);
-      setNuevoTostasBocadillos({ tipo: '', precio: '' });
+          setNuevoTostasBocadillos({
+            tipo: '',
+            tipo_es: '',
+            tipo_en: '',
+            precio: '',
+          });
     }
   } catch (error) {
     console.error('Error al crear tosta o bocadillo:', error);
   }
+
 };
  
 
@@ -90,12 +101,20 @@ const handleCrearTostasBocadillos = async () => {
       <thead>
         <tr>
           <th>Tipo</th>
-          <th>Precio</th>
-          <th>Acciones</th>
+                  {(categoriaTostasBocadillos === 'bocadillos' ||
+                    categoriaTostasBocadillos === 'tostas' ) && (
+                    <>
+                      <th>Tipo (ES)</th>
+                      <th>Tipo (EN)</th>
+                    </>
+                  )}
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                  
         </tr>
       </thead>
       <tbody>
-        {platosTostasBocadillos.map(({ id, tipo, precio }) => (
+        {platosTostasBocadillos.map(({ id, tipo, precio, tipo_es, tipo_en}) => (
           <tr key={id}>
             <td>
               <input
@@ -104,6 +123,25 @@ const handleCrearTostasBocadillos = async () => {
                 onChange={e => handleChangeTostasBocadillos(e, id, 'tipo')}
               />
             </td>
+            {(categoriaTostasBocadillos === 'bocadillos' ||
+                    categoriaTostasBocadillos === 'tostas' ) && (
+                      <>
+                        <td>
+                          <input
+                            type="text"
+                            value={tipo_es || ''}
+                            onChange={e => handleChangeTostasBocadillos(e, id, 'tipo_es')}
+                          />
+                        </td>
+                        <td>
+                          <input
+                            type="text"
+                            value={tipo_en || ''}
+                            onChange={e => handleChangeTostasBocadillos(e, id, 'tipo_en')}
+                          />
+                        </td>
+                      </>
+                    )}
             <td>
               <input
                 type="number"
@@ -130,6 +168,28 @@ const handleCrearTostasBocadillos = async () => {
               onChange={e => setNuevoTostasBocadillos(prev => ({ ...prev, tipo: e.target.value }))}
             />
           </td>
+
+           {(categoriaTostasBocadillos === 'bocadillos' ||
+                    categoriaTostasBocadillos === 'tostas' ) && (
+                    <>
+                      <td>
+                        <input
+                          type="text"
+                          placeholder="Nuevo tipo (ES)"
+                          value={nuevoTostasBocadillos.tipo_es}
+                          onChange={e => setNuevoTostasBocadillos(prev => ({ ...prev, tipo_es: e.target.value }))}
+                        />
+                      </td>
+                      <td>
+                        <input
+                          type="text"
+                          placeholder="Nuevo tipo (EN)"
+                          value={nuevoTostasBocadillos.tipo_en}
+                          onChange={e => setNuevoTostasBocadillos(prev => ({ ...prev, tipo_en: e.target.value }))}
+                        />
+                      </td>
+                    </>
+                  )}
           <td>
             <input
               type="number"

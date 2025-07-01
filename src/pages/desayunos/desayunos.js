@@ -1,36 +1,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import cafeImg from '../../imagenes_desayuno/cafe.jpg';
 import dulceImg from '../../imagenes_desayuno/dulces.jpg';
 import meriendaImg from '../../imagenes_desayuno/merienda.jpg';
 import './desayunos.css';
 
 const Desayunos = () => {
+  const { t } = useTranslation();
+
   const desayunosList = [
-    { nombre: 'Cafés', ruta: '/cafe', imagen: cafeImg },
-    { nombre: 'Dulces y salados', ruta: '/dulces_salados', imagen: dulceImg },
-    { nombre: 'Meriendas', ruta: '/merienda', imagen: meriendaImg },
+    { nombre: t('desayunos.cafe'), ruta: '/cafe', imagen: cafeImg },
+    { nombre: t('desayunos.dulces_salados'), ruta: '/dulces_salados', imagen: dulceImg },
+    { nombre: t('desayunos.merienda'), ruta: '/merienda', imagen: meriendaImg },
   ];
 
   return (
     <div className="desayunos-container">
-      <h1>Desayunos & Meriendas</h1>
+      <h1>{t('desayunos.title')}</h1>
       <div className="desayunos-grid">
-        {desayunosList.map((desayunos, index) => (
-          <Link to={desayunos.ruta} className="desayunos-card" key={index}>
-            <img src={desayunos.imagen} alt={desayunos.nombre} className="desayunos-imagen" />
+        {desayunosList.map((desayuno, index) => (
+          <Link to={desayuno.ruta} className="desayunos-card" key={index}>
+            <img src={desayuno.imagen} alt={desayuno.nombre} className="desayunos-imagen" />
             <div className="desayunos-content">
-              {desayunos.nombre}
+              {desayuno.nombre}
             </div>
           </Link>
         ))}
       </div>
 
-        <div className="link-container">
-              <Link to="/restaurante" className="back-button">
-                ← Volver a Restaurante
-              </Link>
-            </div>
+      <div className="link-container">
+        <Link to="/restaurante" className="back-button">
+          ← {t('restaurante.volver')}
+        </Link>
+      </div>
     </div>
   );
 };

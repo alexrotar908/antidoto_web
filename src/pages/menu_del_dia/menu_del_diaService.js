@@ -10,9 +10,13 @@ export async function getMenuDelDia() {
       menu_platos (
         id,
         tipo,
-        plato
+        plato,
+        plato_es,
+        plato_en
       )
-    `);
+    `)
+    .order('fecha', { ascending: false }) // ordena por fecha descendente
+    .limit(1) // solo el último
 
   if (error) {
     console.error('Error al cargar el menú del día:', error);
@@ -21,7 +25,7 @@ export async function getMenuDelDia() {
 
   if (!data || data.length === 0) return null;
 
-  const latestMenu = data[data.length - 1];
+  const latestMenu = data[0];
 
   // Ordenar los platos por tipo en el frontend
   latestMenu.menu_platos.sort((a, b) => {
@@ -49,10 +53,10 @@ export async function crearMenuDelDia(fecha, precio) {
 }
 
 // Añadir plato al menú
-export async function agregarPlato(menu_id, tipo, plato) {
+export async function agregarPlato(menu_id, tipo, plato, plato_es, plato_en) {
   const { data, error } = await supabase
     .from('menu_platos')
-    .insert([{ menu_id, tipo, plato }])
+    .insert([{ menu_id, tipo, plato, plato_es, plato_en}])
     .select()
     .single();
 
