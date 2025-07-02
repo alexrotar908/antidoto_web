@@ -37,6 +37,8 @@ const resources = {
         dulces_salados: "Sweet and Savory",
         merienda: "Snacks",
         volver: "Breakfasts & Snacks",
+        momentoTitulo: "Antidoto Moment",
+        momentoTexto: "At ANTÍDOTO, we start the day with you. From aromatic coffee for early risers to sweet and savory treats and snacks to share in good company. Every bite is crafted to offer you quality, flavor, and a comforting experience in a cozy setting. Whether it’s a quick breakfast or a relaxing afternoon break, you’ll always find the perfect moment to enjoy in our space."
       },
 
       cafe: {
@@ -137,7 +139,7 @@ const resources = {
         bebidas: "Bebidas",
         volver: "Volver a Restaurante",
         momentoTitulo: "Momento Antídoto",
-  momentoTexto: "Desde un delicioso desayuno hasta una cena adaptada a tus gustos, en ANTÍDOTO tenemos algo para todos. ¡Disfruta de la mejor calidad en un ambiente agradable!",
+        momentoTexto: "Desde un delicioso desayuno hasta una cena adaptada a tus gustos, en ANTÍDOTO tenemos algo para todos. ¡Disfruta de la mejor calidad en un ambiente agradable!",
       },
 
        desayunos: {
@@ -145,7 +147,9 @@ const resources = {
         cafe: "Cafés",
         dulces_salados: "Dulces y salados",
         merienda: "Meriendas",
-        volver: "Desayunos & Meriendas"
+        volver: "Desayunos & Meriendas",
+        momentoTitulo: "Momento Antídoto",
+        momentoTexto: "En ANTÍDOTO comenzamos el día contigo. Desde un café aromático para los más madrugadores hasta dulces, salados y meriendas para compartir en buena compañía. Cada bocado está pensado para ofrecerte calidad, sabor y una experiencia reconfortante en un entorno acogedor. Ya sea un desayuno rápido o una pausa tranquila por la tarde, siempre encontrarás el momento perfecto para disfrutar en nuestro espacio."
       },
        cafe: {
       title: "CAFÉS",

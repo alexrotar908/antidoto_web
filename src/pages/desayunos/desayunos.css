@@ -93,6 +93,39 @@
   z-index: 2;
 }
 
+momento-desayuno {
+  text-align: center;
+  margin: 50px auto 60px auto;
+  padding: 0 15px;
+}
+
+.momento-desayuno h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #357ABD;
+  position: relative;
+  display: inline-block;
+}
+
+.momento-desayuno h2::after {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: white;
+  margin: 10px auto 0 auto;
+  width: 60%; /* por defecto móvil */
+}
+
+.momento-desayuno p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 16px;
+  color: #1a1a1a;
+  padding: 0 15px;
+}
+
+
 /* ----------------------------- */
 /*        MEDIA QUERY MÓVIL      */
 /* ----------------------------- */
@@ -114,6 +147,19 @@
 
   .desayunos-content {
     font-size: 18px;
+  }
+
+    .momento-desayuno {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .momento-desayuno h2 {
+    font-size: 22px;
+  }
+
+  .momento-desayuno-texto {
+    font-size: 15px;
   }
 }
 
@@ -137,4 +183,41 @@
   .desayunos-content {
     font-size: 22px;
   }
+
+  /* -------------------- MOMENTO ANTÍDOTO -------------------- */
+  .momento-desayuno {
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-width: 1000px;
+    text-align: center;
+    padding: 0 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .momento-desayuno h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #357ABD;
+    position: relative;
+  }
+
+  .momento-desayuno h2::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: white;
+    margin: 10px auto 0 auto;
+    width: calc(100vw - 120px); /* Línea adaptada al viewport menos margen */
+    max-width: 1100px; /* No más ancho que el contenido */
+  }
+
+  .momento-desayuno-texto {
+    font-size: 18px;
+    color: #1a1a1a;
+    line-height: 1.6;
+    margin-top: 15px;
+  }
 }
+

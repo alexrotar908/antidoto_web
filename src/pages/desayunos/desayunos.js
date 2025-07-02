@@ -20,10 +20,10 @@ const Desayunos = () => {
       
       <div className="link-container">
         <Link to="/restaurante" className="back-button">
-          ← {t('restaurante.volver')}
+          ←
         </Link>
       </div>
-      
+
       <h1>{t('desayunos.title')}</h1>
       <div className="desayunos-grid">
         {desayunosList.map((desayuno, index) => (
@@ -34,6 +34,13 @@ const Desayunos = () => {
             </div>
           </Link>
         ))}
+      </div>
+
+      <div className="momento-desayuno">
+        <h2>{t('desayunos.momentoTitulo')}</h2>
+          <p className="momento-desayuno-texto">
+            {t('desayunos.momentoTexto')}
+          </p>
       </div>
     </div>
   );
