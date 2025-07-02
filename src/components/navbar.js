@@ -9,7 +9,6 @@ function Navbar() {
   const location = useLocation();
   const [isAdmin, setIsAdmin] = useState(false);
   const { t, i18n } = useTranslation();
-
   const activeRef = useRef(null);
 
   useEffect(() => {
@@ -53,38 +52,40 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar-scroll">
-        <ul className="nav-links">
-          <li>
-            <Link to="/" ref={location.pathname === "/" ? activeRef : null}>
-              {t('inicio')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/restaurante"
-              ref={location.pathname === "/restaurante" ? activeRef : null}
-            >
-              {t('restaurante.title')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/reservas"
-              ref={location.pathname === "/reservas" ? activeRef : null}
-            >
-              {t('reservas')}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/sobre-nosotros"
-              ref={location.pathname === "/sobre-nosotros" ? activeRef : null}
-            >
-              {t('sobreNosotros')}
-            </Link>
-          </li>
-          {adminLink}
-        </ul>
+        <div className="navbar-links-wrapper">
+          <ul className="nav-links">
+            <li>
+              <Link to="/" ref={location.pathname === "/" ? activeRef : null}>
+                {t('inicio')}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/restaurante"
+                ref={location.pathname === "/restaurante" ? activeRef : null}
+              >
+                {t('restaurante.title')}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/reservas"
+                ref={location.pathname === "/reservas" ? activeRef : null}
+              >
+                {t('reservas')}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/sobre-nosotros"
+                ref={location.pathname === "/sobre-nosotros" ? activeRef : null}
+              >
+                {t('sobreNosotros')}
+              </Link>
+            </li>
+            {adminLink}
+          </ul>
+        </div>
 
         <div className="language-selector">
           <button onClick={() => changeLanguage('es')}>{t('espanol')}</button>
