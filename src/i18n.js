@@ -26,7 +26,9 @@ const resources = {
         comidas: "Meals",
         tostasBocadillos: "Toast and Sandwiches",
         bebidas: "Drinks",
-         volver: "Back to Restaurant"
+        volver: "Back to Restaurant",
+        momentoTitulo: "Antídoto Moment",
+        momentoTexto: "From a delicious breakfast to a dinner tailored to your taste, at ANTÍDOTO we have something for everyone. Enjoy top quality in a pleasant atmosphere!"
       }, 
 
       desayunos: {
@@ -133,7 +135,9 @@ const resources = {
         comidas: "Comidas",
         tostasBocadillos: "Tostas y Bocadillos",
         bebidas: "Bebidas",
-        volver: "Volver a Restaurante"
+        volver: "Volver a Restaurante",
+        momentoTitulo: "Momento Antídoto",
+  momentoTexto: "Desde un delicioso desayuno hasta una cena adaptada a tus gustos, en ANTÍDOTO tenemos algo para todos. ¡Disfruta de la mejor calidad en un ambiente agradable!",
       },
 
        desayunos: {

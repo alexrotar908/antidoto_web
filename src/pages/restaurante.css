@@ -61,6 +61,46 @@
   z-index: 2; /* se mantiene encima del overlay */
 }
 
+.momento-antidoto {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.momento-antidoto h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #357ABD;
+}
+
+.momento-texto {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  font-size: 16px;
+  padding: 0 15px;
+}
+
+.momento-galeria {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  flex-shrink: 0;
+  padding: 0 10px;
+}
+
+.momento-imagen {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(53, 122, 189, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.momento-imagen:hover {
+  transform: scale(1.05);
+}
 /* ----------------------------- */
 /*      MEDIA QUERY: MOBILE      */
 /* ----------------------------- */
@@ -83,4 +123,86 @@
     font-size: 16px;
     padding: 0 5px;
   }
+
+   .momento-galeria {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .momento-imagen {
+    width: 90%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  .momento-antidoto h2 {
+    font-size: 22px;
+  }
+
+  .momento-texto {
+    font-size: 14px;
+  }
 }
+
+/* ----------------------------- */
+/*      MEDIA QUERY: ESCRITORIO      */
+/* ----------------------------- */
+@media (min-width: 768px) {
+  .restaurante-container h1 {
+    font-size: 2rem;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+  }
+
+  .restaurante-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin: 40px auto 60px auto;
+  }
+
+  .restaurante-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .restaurante-card {
+    width: 300px;
+    height: 300px;
+    border: 3px solid #357ABD;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .restaurante-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(53, 122, 189, 0.3);
+  }
+
+  .restaurante-imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+  }
+
+  .restaurante-content {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    z-index: 2;
+  }
+}
+
+
+
