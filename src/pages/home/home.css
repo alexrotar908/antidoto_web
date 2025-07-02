@@ -4,14 +4,34 @@
   justify-content: center;
   align-items: center;
   padding: 50px 20px;
-  background-color: #fff5f5;
+  background: linear-gradient(to right, #fff5f5, #fff0f0);
   gap: 40px;
 }
 
 .home-content {
   flex: 1 1 300px;
   max-width: 500px;
-  text-align: left;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.home-logo {
+  max-width: 300px;
+  max-height: 300px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(63, 145, 221, 0.4);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+}
+
+.home-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .home-title {
@@ -19,12 +39,14 @@
   color: #357ABD;
   margin-bottom: 15px;
   font-weight: bold;
+  transition: all 0.3s ease;
 }
 
 .home-subtitle {
   font-size: 1.5rem;
   color: #555;
   margin-bottom: 30px;
+  transition: all 0.3s ease;
 }
 
 .home-button {
@@ -35,7 +57,7 @@
   border: none;
   border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .home-button:hover {
@@ -55,15 +77,12 @@
   max-width: 100%;
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.home-logo {
-  max-width: 300px;
-  max-height: 300px;
-  margin-bottom: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(63, 145, 221, 0.4);
-  display: block;
+.home-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(53, 122, 189, 0.4);
 }
 
 .home-hours {
@@ -72,7 +91,6 @@
   margin-bottom: 25px;
   line-height: 1.6;
 }
-
 
 .home-call-button {
   display: inline-block;
@@ -91,11 +109,12 @@
   background-color: #e6c200;
 }
 
+/* ✅ MOBILE RESPONSIVE */
 @media (max-width: 600px) {
   .home-section {
     flex-direction: column;
-    padding: 30px 10px;
-    gap: 25px;
+    padding: 30px 15px;
+    gap: 30px;
   }
 
   .home-content,
@@ -106,25 +125,39 @@
   }
 
   .home-content {
-    order: 2; /* Poner el texto debajo de la imagen en móvil */
+    order: 1; /* Logo + texto primero */
   }
 
   .home-image-container {
-    order: 1;
+    order: 2; /* Imagen debajo */
+  }
+
+  .home-logo {
+    max-width: 200px;
+    margin-bottom: 20px;
   }
 
   .home-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .home-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    padding: 0 10px;
+  }
+
+  .home-info {
+    padding: 0 10px;
   }
 
   .home-button,
   .home-call-button {
     width: 100%;
     padding: 12px 0;
+    max-width: 250px;
+  }
+
+  .home-image {
+    max-width: 90%;
   }
 }
-
