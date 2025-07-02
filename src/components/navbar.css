@@ -85,22 +85,30 @@
   .navbar {
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* ✅ centramos el contenido */
     padding: 15px 30px;
+    position: relative;
   }
 
   .navbar-scroll {
     overflow-x: visible;
     padding: 0;
     gap: 20px;
+    justify-content: center; /* ✅ centramos la fila horizontal */
+    flex: 1;
   }
 
   .nav-links {
     gap: 20px;
+    margin: 0 auto; /* ✅ centramos el bloque de enlaces */
   }
 
   .language-selector {
-    margin-left: auto;
+    position: absolute; /* ✅ dejamos el idioma a la derecha */
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
     padding-left: 10px;
     border-left: none;
   }
