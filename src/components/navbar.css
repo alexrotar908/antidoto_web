@@ -1,24 +1,24 @@
 .navbar {
   background-color: #357ABD;
-  padding: 10px 15px;
   display: flex;
   flex-direction: column;
+  padding: 0;
 }
 
-/* Contenedor con scroll horizontal para los enlaces */
+/* Scroll horizontal para los enlaces + selector */
 .navbar-scroll {
   display: flex;
   overflow-x: auto;
   white-space: nowrap;
   width: 100%;
-  padding: 10px 0;
+  padding: 10px 15px;
   gap: 20px;
   box-sizing: border-box;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
 }
 
 .navbar-scroll::-webkit-scrollbar {
-  display: none; /* Chrome */
+  display: none;
 }
 
 .nav-links {
@@ -45,18 +45,15 @@
   border-bottom: 2px solid #ffd700;
 }
 
-/* Selector de idioma: parte fija debajo del navbar-scroll */
+/* Selector de idioma: AHORA dentro del scroll y diferenciado */
 .language-selector {
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 16px;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   gap: 6px;
-  margin-top: 5px;
-  padding: 0 15px 10px 15px;
-  box-sizing: border-box;
+  padding-left: 20px;
+  margin-left: 10px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
 }
 
 .language-selector button {
@@ -74,18 +71,16 @@
   color: #ffd700;
 }
 
-/* Separador visual | */
 .language-separator {
   margin: 0 4px;
   font-size: 16px;
-  line-height: 1;
   color: #ffffff;
-  display: inline-block;
+  line-height: 1;
   position: relative;
   top: -1px;
 }
 
-/* Responsive */
+/* Escritorio */
 @media (min-width: 769px) {
   .navbar {
     flex-direction: row;
@@ -96,18 +91,17 @@
 
   .navbar-scroll {
     overflow-x: visible;
-    white-space: normal;
     padding: 0;
+    gap: 20px;
   }
 
   .nav-links {
-    display: flex;
     gap: 20px;
-    margin: 0;
   }
 
   .language-selector {
-    margin-top: 0;
-    padding: 0;
+    margin-left: auto;
+    padding-left: 10px;
+    border-left: none;
   }
 }

@@ -84,12 +84,12 @@ function Navbar() {
           </li>
           {adminLink}
         </ul>
-      </div>
-
+        
       <div className="language-selector">
         <button onClick={() => changeLanguage('es')}>{t('espanol')}</button>
         <span className="language-separator">|</span>
         <button onClick={() => changeLanguage('en')}>{t('ingles')}</button>
+      </div>
       </div>
     </nav>
   );
