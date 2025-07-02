@@ -110,37 +110,56 @@
   }
 
   .restaurante-grid {
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     margin-top: 20px;
     margin-bottom: 40px;
   }
 
+  .restaurante-row {
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+  }
+
   .restaurante-card {
-    height: 250px;
+    height: 220px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
   }
 
   .restaurante-content {
     font-size: 16px;
-    padding: 0 5px;
+    padding: 0 10px;
+    word-break: break-word;
+    line-height: 1.2;
   }
 
-   .momento-galeria {
+  .momento-galeria {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 20px;
+    margin-top: 20px;
   }
 
   .momento-imagen {
-    width: 90%;
-    max-width: 320px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
     height: auto;
   }
 
   .momento-antidoto h2 {
     font-size: 22px;
+    margin: 20px 0 10px;
   }
 
   .momento-texto {
     font-size: 14px;
+    padding: 0 10px;
   }
 }
 
