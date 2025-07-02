@@ -29,17 +29,18 @@
   border-bottom: 2px solid #ffd700;
 }
 
-/* Mantén el selector de idioma pegado a la derecha */
+/* Nuevo sistema para selector de idioma */
 .language-selector {
   color: #ffffff;
   font-weight: 600;
   font-size: 16px;
   display: flex;
-  gap: 8px;
+  align-items: center;
   position: absolute;
   right: 30px;
   top: 50%;
   transform: translateY(-50%);
+  gap: 4px;
 }
 
 .language-selector button {
@@ -57,32 +58,56 @@
   color: #ffd700;
 }
 
-.language-selector button:not(:last-child)::after {
-  content: "|";
+/* Separador visual | */
+.language-separator {
+  margin: 0 6px;
+  font-size: 16px;
+  line-height: 1;
   color: #ffffff;
-  margin-left: 8px;
-  margin-right: 8px;
+  display: inline-block;
+  position: relative;
+  top: -1px; 
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .navbar {
-    padding: 10px 15px;
+    padding: 10px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-x: hidden;
+    position: relative;
   }
 
   .nav-links {
-    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    gap: 20px;
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .nav-links li {
+    display: inline-block;
+    flex: 0 0 auto;
   }
 
   .language-selector {
-    position: static;
-    transform: none;
-    margin-left: auto;
-    gap: 5px;
+    width: 100%;
+    justify-content: flex-end;
+    padding: 0 15px 10px;
+    box-sizing: border-box;
   }
 
-  .language-selector button:not(:last-child)::after {
-    margin-left: 5px;
-    margin-right: 5px;
+  .language-separator {
+    margin: 0 5px;
   }
 }
+
