@@ -29,7 +29,7 @@ function Cafe() {
       {/* ✅ Botón de volver fuera de la tarjeta, alineado con la parte superior */}
       <div className="back-button-fixed">
         <Link to="/desayunos-meriendas" className="back-button">
-          ← {t('desayunos.volver', 'Desayunos & Meriendas')}
+          ← 
         </Link>
       </div>
 
