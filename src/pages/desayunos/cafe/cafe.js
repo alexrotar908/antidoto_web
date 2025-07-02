@@ -25,15 +25,6 @@ function Cafe() {
 
   return (
     <div className="cafe-page-wrapper">
-
-      {/* ✅ Botón de volver fuera de la tarjeta, alineado con la parte superior */}
-      <div className="back-button-fixed">
-        <Link to="/desayunos-meriendas" className="back-button">
-          ← 
-        </Link>
-      </div>
-
-      {/* ✅ Tarjeta centrada con la lista de cafés */}
       <section className="cafe-section">
         <h2 className="cafe-title">{t('cafe.title', 'CAFÉS')}</h2>
 
@@ -67,6 +58,13 @@ function Cafe() {
             </li>
           ))}
         </ul>
+
+        {/* Botón de volver dentro de la tarjeta, parte inferior izquierda */}
+        <div className="back-button-inside">
+          <Link to="/desayunos-meriendas" className="back-button">
+            ← {t('desayunos.volver', 'Desayunos & Meriendas')}
+          </Link>
+        </div>
       </section>
     </div>
   );
