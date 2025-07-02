@@ -17,6 +17,13 @@ const Desayunos = () => {
 
   return (
     <div className="desayunos-container">
+      
+      <div className="link-container">
+        <Link to="/restaurante" className="back-button">
+          ← {t('restaurante.volver')}
+        </Link>
+      </div>
+      
       <h1>{t('desayunos.title')}</h1>
       <div className="desayunos-grid">
         {desayunosList.map((desayuno, index) => (
@@ -27,12 +34,6 @@ const Desayunos = () => {
             </div>
           </Link>
         ))}
-      </div>
-
-      <div className="link-container">
-        <Link to="/restaurante" className="back-button">
-          ← {t('restaurante.volver')}
-        </Link>
       </div>
     </div>
   );

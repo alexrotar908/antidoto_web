@@ -1,20 +1,53 @@
 .desayunos-container {
   min-height: 100vh;
-  padding: 40px;
-  text-align: center;
+  padding: 40px 20px;
   background-color: #f0f9ff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
 }
 
+/* TÍTULO */
+.desayunos-container h1 {
+  text-align: center;
+  color: #1a1a1a;
+}
+
+/* BOTÓN VOLVER - estilo base */
+.back-button {
+  display: inline-block;
+  color: #357ABD;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  border: 2px solid #357ABD;
+  padding: 8px 20px;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #357ABD;
+  color: white;
+}
+
+/* CONTENEDOR del botón arriba a la izquierda */
+.link-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+/* GRID DE CARTAS */
 .desayunos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
-  margin-top: 40px;
-  margin-bottom: 60px; /* margen respecto al footer */
-  flex-grow: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 .desayunos-card {
@@ -23,19 +56,18 @@
   border: 3px solid #357ABD;
   border-radius: 12px;
   overflow: hidden;
-  color: white;
   text-decoration: none;
   height: 300px;
   transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .desayunos-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* oscurece la imagen */
+  background: rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
-
 
 .desayunos-card:hover {
   transform: scale(1.03);
@@ -58,29 +90,51 @@
   font-size: 20px;
   font-weight: bold;
   color: white;
-  z-index: 2; /* se mantiene encima del overlay */
+  z-index: 2;
 }
 
-.back-button {
-  display: inline-block;
-  margin-top: 30px;
-  color: #357ABD;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1.1rem;
-  border: 2px solid #357ABD;
-  padding: 8px 20px;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
+/* ----------------------------- */
+/*        MEDIA QUERY MÓVIL      */
+/* ----------------------------- */
+@media (max-width: 600px) {
+  .desayunos-container {
+    padding: 20px 15px;
+    align-items: stretch;
+  }
+
+  .link-container {
+    justify-content: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .back-button {
+    font-size: 1rem;
+    padding: 6px 16px;
+  }
+
+  .desayunos-content {
+    font-size: 18px;
+  }
 }
 
-.back-button:hover {
-  background-color: #357ABD;
-  color: white;
-}
+/* ----------------------------- */
+/*      MEDIA QUERY ESCRITORIO   */
+/* ----------------------------- */
+@media (min-width: 768px) {
+  .desayunos-container {
+    padding: 40px;
+  }
 
-.link-container {
-  width: 100%;
-  text-align: center;
-  margin-top: 1rem;
+  .link-container {
+    margin-bottom: 20px;
+  }
+
+  .desayunos-grid {
+    margin-top: 30px;
+    gap: 40px;
+  }
+
+  .desayunos-content {
+    font-size: 22px;
+  }
 }
