@@ -52,46 +52,45 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <ul className="nav-links">
-        <li>
-          <Link
-            to="/"
-            ref={location.pathname === "/" ? activeRef : null}
-          >
-            {t('inicio')}
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/restaurante"
-            ref={location.pathname === "/restaurante" ? activeRef : null}
-          >
-            {t('restaurante.title')}
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/reservas"
-            ref={location.pathname === "/reservas" ? activeRef : null}
-          >
-            {t('reservas')}
-          </Link>
-        </li>
-        <li>
-          <Link
-            to="/sobre-nosotros"
-            ref={location.pathname === "/sobre-nosotros" ? activeRef : null}
-          >
-            {t('sobreNosotros')}
-          </Link>
-        </li>
-        {adminLink}
-      </ul>
+      <div className="navbar-scroll">
+        <ul className="nav-links">
+          <li>
+            <Link to="/" ref={location.pathname === "/" ? activeRef : null}>
+              {t('inicio')}
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/restaurante"
+              ref={location.pathname === "/restaurante" ? activeRef : null}
+            >
+              {t('restaurante.title')}
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/reservas"
+              ref={location.pathname === "/reservas" ? activeRef : null}
+            >
+              {t('reservas')}
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/sobre-nosotros"
+              ref={location.pathname === "/sobre-nosotros" ? activeRef : null}
+            >
+              {t('sobreNosotros')}
+            </Link>
+          </li>
+          {adminLink}
+        </ul>
 
-      <div className="language-selector">
-        <button onClick={() => changeLanguage('es')}>{t('espanol')}</button>
-        <span className="language-separator">|</span>
-        <button onClick={() => changeLanguage('en')}>{t('ingles')}</button>
+        <div className="language-selector">
+          <button onClick={() => changeLanguage('es')}>{t('espanol')}</button>
+          <span className="language-separator">|</span>
+          <button onClick={() => changeLanguage('en')}>{t('ingles')}</button>
+        </div>
       </div>
     </nav>
   );
