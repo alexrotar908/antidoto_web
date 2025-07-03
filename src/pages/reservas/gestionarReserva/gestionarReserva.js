@@ -12,7 +12,7 @@ const GestionReserva = () => {
       // Reemplaza esta URL con la correcta de tu API o NocoDB
       fetch(`https://clase-easypanel-1-nocodb.dxqu9z.easypanel.host/api/v2/tables/mhpl3fkpiz61oi6/records/${id}`)
         .then((res) => res.json())
-        .then((data) => setReserva(data))
+        .then((data) => setReserva(data.record))
         .catch((err) => console.error('Error al cargar la reserva:', err));
     }
   }, [id]);
