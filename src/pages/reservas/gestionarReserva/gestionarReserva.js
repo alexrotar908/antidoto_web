@@ -20,11 +20,30 @@ const GestionReserva = () => {
         .then((data) => {
           console.log("DATA RECIBIDA:", data);
           setReserva(data);
-          setEstadoReserva(data.Estado); // si ya existe
+          setEstadoReserva(data.Estado);
         })
         .catch((err) => console.error('Error al cargar la reserva:', err));
     }
   }, [id]);
+
+  const notificarWebhook = (estado) => {
+    fetch('https://clase-easypanel-1-n8n.dxqu9z.easypanel.host/webhook-test/1cf122fc-7bb1-4326-a3cd-a8c2a4725a3f', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        Estado: estado,
+        Nombre: reserva.Nombre,
+        Email: reserva.Email,
+        Fecha: reserva.Fecha,
+        Hora: reserva.Hora,
+        Personas: reserva.Personas,
+        Comentarios: reserva.Comentarios || 'Ninguno',
+        Telefono: reserva.Telefono
+      })
+    })
+    .then(() => console.log('Notificación enviada a n8n'))
+    .catch(err => console.error('Error al notificar a n8n:', err));
+  };
 
   const actualizarEstado = (nuevoEstado) => {
     fetch(`https://clase-easypanel-1-nocodb.dxqu9z.easypanel.host/api/v2/tables/mhpl3fkpiz61oi6/records/${id}`, {
@@ -39,6 +58,7 @@ const GestionReserva = () => {
       .then((res) => res.json())
       .then(() => {
         setEstadoReserva(nuevoEstado);
+        notificarWebhook(nuevoEstado); // Envía los datos al webhook de n8n
       })
       .catch((err) => console.error('Error al actualizar estado:', err));
   };
