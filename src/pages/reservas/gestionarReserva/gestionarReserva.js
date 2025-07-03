@@ -17,7 +17,7 @@ headers: {
   }
 })
   .then((res) => res.json())
-  .then((data) => setReserva(data.record))
+  .then((data) => { console.log("DATA RECIBIDA:", data); setReserva(data);})
   .catch((err) => console.error('Error al cargar la reserva:', err));
     }
   }, [id]);
