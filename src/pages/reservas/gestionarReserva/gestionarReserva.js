@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSearchParams } from 'react-router-dom';
-import './GestionReserva.css'; // opcional para estilos
+import '../gestionarReserva/gestionarReserva.css'; // opcional para estilos
 
 const GestionReserva = () => {
   const [searchParams] = useSearchParams();
