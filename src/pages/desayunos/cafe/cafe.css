@@ -1,66 +1,57 @@
 /* CONTENEDOR GLOBAL */
 .cafe-page-wrapper {
   background-color: #f8fafc;
+  width: 100vw;
+  height: 100vh; /* Ocupa toda la pantalla */
   display: flex;
   justify-content: center;
-  padding: 80px 20px;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
 }
 
-/* FLEX CONTENEDOR DE IMÁGENES Y TARJETA */
+/* FLEX en fila */
 .cafe-flex-container {
   display: flex;
+  flex-direction: row;
   align-items: stretch;
-  gap: 0; /* lo controlamos con margin en cada columna */
-  max-width: 1400px;
-  width: 100%;
   justify-content: center;
-  position: relative;
+  width: 100%;
+  max-width: 1200px;
 }
 
-/* NUEVO: columna individual para cada bloque */
-.cafe-column {
+/* IMAGEN */
+.cafe-left-image-wrapper {
+  width: 65%;
   display: flex;
   align-items: stretch;
-}
-
-/* CONTENEDOR ENVOLTORIO PARA CONTROLAR LA ALTURA DE LA IMAGEN */
-.cafe-image-wrapper {
-  width: 230px;
+  justify-content: flex-end;
   flex-shrink: 0;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  margin: 0 20px; /* ⬅️ Separación entre imagen y tarjeta */
 }
 
-/* IMAGEN QUE SE VE COMPLETA Y OCUPA TODO EL ALTO */
 .cafe-bg-image {
+  width: 175%;
   height: 100%;
-  width: auto;
-  object-fit: contain;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  border-radius: 0;
 }
 
-/* TARJETA ROSADA */
+/* TARJETA DE CAFÉS */
 .cafe-section {
+  width: 60%;
   padding: 40px 20px;
-  max-width: 700px;
-  width: 100%;
   background-color: #fff5f5;
-  border-radius: 15px;
   box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
-  box-sizing: border-box;
-  z-index: 10;
+  overflow-y: auto;
+  border-radius: 0;
 }
 
-/* BOTÓN DENTRO DE LA TARJETA */
+/* Botón */
 .back-button-inside {
   margin-top: 50px;
   text-align: center;
 }
 
-/* ESTILO DEL BOTÓN */
 .back-button {
   display: inline-block;
   color: #357ABD;
@@ -78,7 +69,7 @@
   color: white;
 }
 
-/* TIPOGRAFÍA Y LISTA */
+/* Textos */
 .cafe-title {
   color: #357ABD;
   font-size: 2.5rem;
@@ -103,6 +94,7 @@
   text-align: center;
 }
 
+/* Lista */
 .cafe-list {
   list-style: none;
   padding: 0;
@@ -124,32 +116,33 @@
 .cafe-info h3 {
   margin: 0;
   font-size: 1.5rem;
-  color: #000000;
+  color: #000;
   text-align: left;
 }
 
 .cafe-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #000000;
+  color: #000;
   min-width: 70px;
   text-align: right;
 }
 
 /* MEDIA QUERY: MÓVIL */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .cafe-flex-container {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
   }
 
-  .cafe-column {
-    width: 100%;
-  }
-
-  .cafe-image-wrapper {
+  .cafe-left-image-wrapper {
     display: none;
+  }
+
+  .cafe-section {
+    width: 100%;
+    padding: 20px;
+    height: auto;
   }
 
   .cafe-title {
@@ -172,14 +165,14 @@
 
 /* MEDIA QUERY: ESCRITORIO */
 @media (min-width: 768px) {
-  .cafe-page-wrapper {
-    padding-left: 40px;
-    padding-right: 40px;
+  .cafe-flex-container {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
   }
 
   .cafe-section {
-    padding: 60px 40px;
-    max-width: 900px;
+    padding: 70px 30px;
   }
 
   .back-button {
