@@ -29,7 +29,7 @@ headers: {
         <div className="reserva-box">
           <p>Detalles de la reserva:</p>
           <h3>
-            {reserva.fecha} | {reserva.hora} | {reserva.personas} personas
+            {reserva.Fecha} | {reserva.Hora} | {reserva.Personas} personas
           </h3>
           <p><strong>¿Qué desea hacer con la reserva?</strong></p>
           <div className="botones">
