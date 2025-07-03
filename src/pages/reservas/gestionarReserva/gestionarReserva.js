@@ -1,25 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import '../gestionarReserva/gestionarReserva.css'; // opcional para estilos
+import './gestionarReserva.css';
 
 const GestionReserva = () => {
   const [searchParams] = useSearchParams();
   const id = searchParams.get('id');
+  const [reserva, setReserva] = useState(null);
+
+  useEffect(() => {
+    if (id) {
+      // Reemplaza esta URL con la correcta de tu API o NocoDB
+      fetch(`https://clase-easypanel-1-nocodb.dxqu9z.easypanel.host/api/v2/tables/mhpl3fkpiz61oi6/records${id}`)
+        .then((res) => res.json())
+        .then((data) => setReserva(data))
+        .catch((err) => console.error('Error al cargar la reserva:', err));
+    }
+  }, [id]);
 
   return (
     <div className="gestion-container">
       <h2>Gestión de Reserva</h2>
-      {id ? (
+      {reserva ? (
         <div className="reserva-box">
-          <p>Estás gestionando la reserva con ID: <strong>{id}</strong></p>
-          <p>¿Qué deseas hacer con esta reserva?</p>
+          <p>Detalles de la reserva:</p>
+          <h3>
+            {reserva.fecha} | {reserva.hora} | {reserva.personas} personas
+          </h3>
+          <p><strong>¿Qué desea hacer con la reserva?</strong></p>
           <div className="botones">
-            <button className="confirmar">✅ Confirmar</button>
-            <button className="cancelar">❌ Cancelar</button>
+            <button className="confirmar">Confirmar reserva</button>
+            <button className="cancelar">Cancelar reserva</button>
           </div>
         </div>
       ) : (
-        <p>No se ha especificado ninguna reserva.</p>
+        <p>Cargando reserva o ID inválido.</p>
       )}
     </div>
   );
