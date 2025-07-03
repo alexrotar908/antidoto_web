@@ -2,9 +2,44 @@
 .cafe-page-wrapper {
   background-color: #f8fafc;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 80px;
+  justify-content: center;
+  padding: 80px 20px;
+}
+
+/* FLEX CONTENEDOR DE IMÁGENES Y TARJETA */
+.cafe-flex-container {
+  display: flex;
+  align-items: stretch;
+  gap: 0; /* lo controlamos con margin en cada columna */
+  max-width: 1400px;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+}
+
+/* NUEVO: columna individual para cada bloque */
+.cafe-column {
+  display: flex;
+  align-items: stretch;
+}
+
+/* CONTENEDOR ENVOLTORIO PARA CONTROLAR LA ALTURA DE LA IMAGEN */
+.cafe-image-wrapper {
+  width: 230px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  margin: 0 20px; /* ⬅️ Separación entre imagen y tarjeta */
+}
+
+/* IMAGEN QUE SE VE COMPLETA Y OCUPA TODO EL ALTO */
+.cafe-bg-image {
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* TARJETA ROSADA */
@@ -16,6 +51,7 @@
   border-radius: 15px;
   box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
   box-sizing: border-box;
+  z-index: 10;
 }
 
 /* BOTÓN DENTRO DE LA TARJETA */
@@ -42,7 +78,7 @@
   color: white;
 }
 
-/* TIPOGRAFÍA Y ELEMENTOS DE LISTA */
+/* TIPOGRAFÍA Y LISTA */
 .cafe-title {
   color: #357ABD;
   font-size: 2.5rem;
@@ -101,10 +137,19 @@
 }
 
 /* MEDIA QUERY: MÓVIL */
-@media (max-width: 600px) {
-  .back-button {
-    font-size: 1rem;
-    padding: 6px 16px;
+@media (max-width: 768px) {
+  .cafe-flex-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .cafe-column {
+    width: 100%;
+  }
+
+  .cafe-image-wrapper {
+    display: none;
   }
 
   .cafe-title {
@@ -119,18 +164,17 @@
     font-size: 1.1rem;
   }
 
-  .cafe-page-wrapper {
-    padding-top: 60px;
+  .back-button {
+    font-size: 1rem;
+    padding: 6px 16px;
   }
 }
 
 /* MEDIA QUERY: ESCRITORIO */
 @media (min-width: 768px) {
   .cafe-page-wrapper {
-    padding-top: 80px;
     padding-left: 40px;
     padding-right: 40px;
-    padding-bottom: 40px;
   }
 
   .cafe-section {
