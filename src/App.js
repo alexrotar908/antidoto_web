@@ -22,6 +22,7 @@ import MenuDelDia from './pages/menu_del_dia/menu_del_dia';
 import Bebidas from './pages/bebidas/bebidas';
 import Vino from './pages/bebidas/vino/vino';
 import AdminEditor from './pages/admin/admin';
+import GestionReserva from './pages/reservas/gestionarReserva/gestionarReserva';
 import { useTranslation, Trans } from 'react-i18next'; 
 import './App.css';
 
@@ -43,6 +44,7 @@ function App() {
             <Route path="/restaurante" element={<Restaurante />} />
             <Route path="/comida" element={<Comida />} />
             <Route path="/reservas" element={<Reservas />} />
+            <Route path="/reservas/gestionar" element={<GestionReserva />} />
             <Route path="/sobre-nosotros" element={<About />} />
             <Route path="/comida/entrantes" element={<Entrantes />} />
             <Route path="/comida/sartenes" element={<Sartenes />} />
