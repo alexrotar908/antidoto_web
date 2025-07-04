@@ -16,7 +16,9 @@ const Reservas = () => {
   const [errorTelefono, setErrorTelefono] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
   const [aceptaTerminos, setAceptaTerminos] = useState(false);
+  const [consienteDatos, setConsienteDatos] = useState(false);
   const [errorTerminos, setErrorTerminos] = useState('');
+  const [errorDatos, setErrorDatos] = useState('');
 
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -53,6 +55,12 @@ const Reservas = () => {
     }
     setErrorTerminos('');
 
+    if (!consienteDatos) {
+      setErrorDatos('Debe consentir el tratamiento de datos personales para continuar.');
+      return;
+    }
+    setErrorDatos('');
+
     try {
       const res = await fetch(
         'https://clase-easypanel-1-n8n.dxqu9z.easypanel.host/webhook/reserva_antidoto',
@@ -75,6 +83,7 @@ const Reservas = () => {
           comentarios: '',
         });
         setAceptaTerminos(false);
+        setConsienteDatos(false);
       } else {
         alert('Error al enviar la reserva. Inténtalo más tarde.');
       }
@@ -166,9 +175,19 @@ const Reservas = () => {
               checked={aceptaTerminos}
               onChange={(e) => setAceptaTerminos(e.target.checked)}
             />
-            &nbsp; He leído y acepto los <a href="/terminos" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a>
+            &nbsp; He leído y acepto los <a href="/terminos" target="_blank" rel="noopener noreferrer">términos y condiciones</a>
           </label>
           {errorTerminos && <p className="error">{errorTerminos}</p>}
+
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={consienteDatos}
+              onChange={(e) => setConsienteDatos(e.target.checked)}
+            />
+            &nbsp; Consiento el <a href="/consentimiento" target="_blank" rel="noopener noreferrer">tratamiento de mis datos personales</a>
+          </label>
+          {errorDatos && <p className="error">{errorDatos}</p>}
 
           <button type="submit">Reservar</button>
         </form>
