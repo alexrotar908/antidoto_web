@@ -1,4 +1,4 @@
-.terminos-page {
+.terminos-container {
   max-width: 1000px;
   margin: 3rem auto;
   padding: 2rem;
@@ -9,47 +9,56 @@
   text-align: center;
 }
 
-.terminos-page h3 {
+.terminos-container h3 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: white;
 }
 
-.terminos-page p {
+.terminos-container p {
   line-height: 1.6;
   text-align: justify;
   margin-bottom: 1rem;
+  color: white;
 }
 
-.terminos-page select {
+.terminos-container select {
   padding: 0.5rem;
   border-radius: 8px;
   font-size: 1rem;
-  margin-bottom: 1.5rem;
   border: none;
+  background-color: white;
+  color: #357ABD;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
 }
 
-.terminos-page option {
-  color: #000;
+.terminos-container hr {
+  border: 0;
+  height: 1px;
+  background: white;
+  margin: 2rem 0;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
-  .terminos-page {
+  .terminos-container {
     padding: 1.5rem;
     margin: 1rem;
     border-radius: 16px;
   }
 
-  .terminos-page h3 {
-    font-size: 1.1rem;
+  .terminos-container h3 {
+    font-size: 1.2rem;
   }
 
-  .terminos-page p {
+  .terminos-container p {
     font-size: 0.95rem;
   }
 
-  .terminos-page select {
+  .terminos-container select {
     font-size: 0.9rem;
   }
 }

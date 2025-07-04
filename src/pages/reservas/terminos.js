@@ -3,7 +3,7 @@ import './terminos.css';
 
 const Terminos = () => {
   return (
-    <div className="reservas-container">
+    <div className="terminos-container">
       <select
         onChange={(e) => {
           document.getElementById('es').style.display = e.target.value === 'es' ? 'block' : 'none';
