@@ -179,7 +179,22 @@ terminos: {
   avisoLegalTitulo: "LEGAL NOTICE",
   legal1: "In compliance with REGULATION (EU) 2016/679 OF THE EUROPEAN PARLIAMENT, we inform you that to manage your reservation and send commercial info, personal data processing is required.",
   legal2: "You may exercise your legal rights by sending a signed letter with ID to the restaurant or via email."
-}
+},
+
+menuDia: {
+  titulo: "DAILY MENU",
+  disponible: "(Available Monday to Friday – Weekdays)",
+  primero: "Starter",
+  segundo: "Main",
+  postre: "Dessert",
+  aElegir: "Choose one",
+  incluye: "Includes bread, drink, and coffee or tea",
+  precio: "Price: €{{precio}} VAT included",
+  volver: "Back to Restaurant",
+  cargando: "Loading menu...",
+  error: "Daily menu not found."
+},
+
 
 
 
@@ -364,6 +379,21 @@ terminos: {
   legal1: "En cumplimiento del REGLAMENTO (UE) 2016/679 DEL PARLAMENTO EUROPEO Y DEL CONSEJO de 27 de abril de 2016 sobre protección de datos personales, le informamos que con el fin de gestionar su reserva y remitirle información comercial, se requiere su consentimiento para el tratamiento de datos personales.",
   legal2: "Podrá ejercer sus derechos de acceso, rectificación, cancelación, oposición, portabilidad y olvido enviando un escrito con copia de su DNI al restaurante o por correo electrónico."
 },
+
+menuDia: {
+  titulo: "DAILY MENU",
+  disponible: "(Available Monday to Friday – Weekdays)",
+  primero: "Starter",
+  segundo: "Main",
+  postre: "Dessert",
+  aElegir: "Choose one",
+  incluye: "Includes bread, drink, and coffee or tea",
+  precio: "Price: €{{precio}} VAT included",
+  volver: "Back to Restaurant",
+  cargando: "Loading menu...",
+  error: "Daily menu not found."
+}
+
 
 
    }

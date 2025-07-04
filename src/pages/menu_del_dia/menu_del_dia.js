@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../menu_del_dia/menu_del_dia.css';
 import { getMenuDelDia } from './menu_del_diaService';
+import { useTranslation } from 'react-i18next';
 
 const MenuDelDia = () => {
   const [menu, setMenu] = useState(null);
   const [loading, setLoading] = useState(true);
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchMenu() {
@@ -18,8 +20,8 @@ const MenuDelDia = () => {
     fetchMenu();
   }, []);
 
-  if (loading) return <p className="menu-loading">Cargando menú...</p>;
-  if (!menu) return <p className="menu-error">No se encontró el menú del día.</p>;
+  if (loading) return <p className="menu-loading">{t('menuDia.cargando')}</p>;
+  if (!menu) return <p className="menu-error">{t('menuDia.error')}</p>;
 
   const groupedPlatos = {
     primero: [],
@@ -35,13 +37,13 @@ const MenuDelDia = () => {
 
   return (
     <div className="menu-container">
-      <h1 className="menu-title">MENÚ DEL DÍA</h1>
-      <p className="menu-subtitle">(Disponible de lunes a viernes – Laborables)</p>
+      <h1 className="menu-title">{t('menuDia.titulo')}</h1>
+      <p className="menu-subtitle">{t('menuDia.disponible')}</p>
 
       {['primero', 'segundo', 'postre'].map((tipo) => (
         <section className="menu-section" key={tipo}>
           <h2 className="menu-section-title">
-            {tipo.toUpperCase()}S <span>(A elegir)</span>
+            {t(`menuDia.${tipo}`)}S <span>({t('menuDia.aElegir')})</span>
           </h2>
           <ul>
             {groupedPlatos[tipo].map((plato, index) => (
@@ -52,9 +54,11 @@ const MenuDelDia = () => {
       ))}
 
       <div className="menu-extra">
-        <p>Incluye pan, bebida y café o infusión</p>
-        <p className="menu-price">Precio: {menu.precio.toFixed(2)} € IVA incluido</p>
-        <Link to="/restaurante" className="back-button">← Volver a Restaurante</Link>
+        <p>{t('menuDia.incluye')}</p>
+        <p className="menu-price">
+          {t('menuDia.precio', { precio: menu.precio.toFixed(2) })}
+        </p>
+        <Link to="/restaurante" className="back-button">← {t('menuDia.volver')}</Link>
       </div>
     </div>
   );
