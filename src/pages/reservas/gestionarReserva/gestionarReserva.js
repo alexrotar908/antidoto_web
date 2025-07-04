@@ -27,7 +27,7 @@ const GestionReserva = () => {
   }, [id]);
 
   const notificarWebhook = (estado) => {
-    fetch('https://clase-easypanel-1-n8n.dxqu9z.easypanel.host/webhook-test/1cf122fc-7bb1-4326-a3cd-a8c2a4725a3f', {
+    fetch('https://clase-easypanel-1-n8n.dxqu9z.easypanel.host/webhook/1cf122fc-7bb1-4326-a3cd-a8c2a4725a3f', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
