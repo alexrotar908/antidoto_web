@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 const MenuDelDia = () => {
   const [menu, setMenu] = useState(null);
   const [loading, setLoading] = useState(true);
-  const { t } = useTranslation();
+  const { t, i18n} = useTranslation();
 
   useEffect(() => {
     async function fetchMenu() {
@@ -29,9 +29,9 @@ const MenuDelDia = () => {
     postre: [],
   };
 
-  menu.menu_platos.forEach(({ tipo, plato }) => {
-    if (groupedPlatos[tipo]) {
-      groupedPlatos[tipo].push(plato);
+  menu.menu_platos.forEach((plato ) => {
+    if (groupedPlatos[plato.tipo]) {
+      groupedPlatos[plato.tipo].push(plato);
     }
   });
 
