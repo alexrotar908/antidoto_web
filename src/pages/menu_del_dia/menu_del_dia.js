@@ -35,6 +35,11 @@ const MenuDelDia = () => {
     }
   });
 
+  const nombrePlato = (plato) => {
+    if (i18n.language === 'en') return plato.plato_en || plato.tipo;
+    return plato.plato || plato.tipo;
+  };
+
   return (
     <div className="menu-container">
       <h1 className="menu-title">{t('menuDia.titulo')}</h1>
@@ -43,11 +48,11 @@ const MenuDelDia = () => {
       {['primero', 'segundo', 'postre'].map((tipo) => (
         <section className="menu-section" key={tipo}>
           <h2 className="menu-section-title">
-            {t(`menuDia.${tipo}`)}S <span>({t('menuDia.aElegir')})</span>
+            {t(`menuDia.${tipo}`)} <span>({t('menuDia.aElegir')})</span>
           </h2>
           <ul>
             {groupedPlatos[tipo].map((plato, index) => (
-              <li key={index}>{plato}</li>
+              <li key={index}>{nombrePlato(plato)}</li>
             ))}
           </ul>
         </section>

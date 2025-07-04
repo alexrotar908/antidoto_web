@@ -381,18 +381,19 @@ terminos: {
 },
 
 menuDia: {
-  titulo: "DAILY MENU",
-  disponible: "(Available Monday to Friday – Weekdays)",
-  primero: "Starter",
-  segundo: "Main",
-  postre: "Dessert",
-  aElegir: "Choose one",
-  incluye: "Includes bread, drink, and coffee or tea",
-  precio: "Price: €{{precio}} VAT included",
-  volver: "Back to Restaurant",
-  cargando: "Loading menu...",
-  error: "Daily menu not found."
+  titulo: "MENÚ DEL DÍA",
+  disponible: "(Disponible de lunes a viernes – Laborables)",
+  primero: "Primero",
+  segundo: "Segundo",
+  postre: "Postre",
+  aElegir: "A elegir",
+  incluye: "Incluye pan, bebida y café o infusión",
+  precio: "Precio: {{precio}} € IVA incluido",
+  volver: "Volver a Restaurante",
+  cargando: "Cargando menú...",
+  error: "No se encontró el menú del día."
 }
+
 
 
 
