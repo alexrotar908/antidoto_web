@@ -1,0 +1,55 @@
+.terminos-page {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #357ABD;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  color: white;
+  text-align: center;
+}
+
+.terminos-page h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.terminos-page p {
+  line-height: 1.6;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.terminos-page select {
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  border: none;
+}
+
+.terminos-page option {
+  color: #000;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .terminos-page {
+    padding: 1.5rem;
+    margin: 1rem;
+    border-radius: 16px;
+  }
+
+  .terminos-page h3 {
+    font-size: 1.1rem;
+  }
+
+  .terminos-page p {
+    font-size: 0.95rem;
+  }
+
+  .terminos-page select {
+    font-size: 0.9rem;
+  }
+}
