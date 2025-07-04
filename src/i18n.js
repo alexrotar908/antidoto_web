@@ -190,7 +190,7 @@ terminos: {
     translation: {
       inicio: "Inicio",
       restaurante: "Restaurante",
-      reservas: "Reservas",
+      reserva: "Reservas",
       sobreNosotros: "Sobre Nosotros",
       admin: "Admin",
       idioma: "Idioma",
@@ -296,7 +296,7 @@ terminos: {
 },
 
 reservas: {
-  titulo: "Reserva tu mesa",
+  titulos: "Reserva tu mesa",
   confirmacion: "¡Gracias por reservar! Te contactaremos pronto.",
   nombre: "Nombre",
   telefono: "Teléfono",

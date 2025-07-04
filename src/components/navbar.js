@@ -71,7 +71,7 @@ function Navbar() {
               to="/reservas"
               ref={location.pathname === "/reservas" ? activeRef : null}
             >
-              {t('reservas')}
+              {t('reserva')}
             </Link>
           </li>
           <li>

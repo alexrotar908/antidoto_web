@@ -152,7 +152,7 @@ const Reservas = () => {
 
   return (
     <div className="reservas-container">
-      <h2>{t('reservas.titulo')}</h2>
+      <h2>{t('reservas.titulos')}</h2>
       {enviado ? (
         <p className="confirmacion">{t('reservas.confirmacion')}</p>
       ) : (
