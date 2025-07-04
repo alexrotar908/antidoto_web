@@ -6,6 +6,8 @@ import ComidasSection from './sections/comidasSection';
 import TostasBocadillosSection from './sections/tostasBocadillosSection';
 import VinoSection from './sections/vinoSection';
 import MenuDelDiaSection from './sections/menuDelDiaSection';
+import CervezaSection from './sections/cervezaSection';
+import RefrescosSection from './sections/refrescoSection';
 import './admin.css';
 
 export default function AdminEditor() {
@@ -20,6 +22,8 @@ export default function AdminEditor() {
       <ComidasSection />
       <TostasBocadillosSection />
       <VinoSection/>
+      <CervezaSection/>
+      <RefrescosSection/>
       <MenuDelDiaSection/>
     </div>
   );

@@ -63,7 +63,7 @@ function Navbar() {
               to="/restaurante"
               ref={location.pathname === "/restaurante" ? activeRef : null}
             >
-              {t('restaurante.title')}
+              {t('restaurantes')}
             </Link>
           </li>
           <li>
@@ -71,7 +71,7 @@ function Navbar() {
               to="/reservas"
               ref={location.pathname === "/reservas" ? activeRef : null}
             >
-              {t('reserva')}
+              {t('reservas_1')}
             </Link>
           </li>
           <li>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import vinoImg from '../../imagenes_bebidas/vino.jpg';
+import cervezaImg from '../../imagenes_bebidas/cerveza.jpg';
+import refrescoImg from '../../imagenes_bebidas/refrescoos.jpg';
 import './bebidas.css';
 import { useTranslation } from 'react-i18next';
 
@@ -9,6 +11,9 @@ const Bebidas = () => {
 
   const bebidasList = [
     { nombre: t('bebidas.vinos'), ruta: '/vino', imagen: vinoImg },
+    { nombre: t('bebidas.cervezas'), ruta: '/cervezas', imagen: cervezaImg },
+    { nombre: t('bebidas.refrescos'), ruta: '/refrescos', imagen: refrescoImg },
+
   ];
 
   return (

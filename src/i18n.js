@@ -5,8 +5,8 @@ const resources = {
   en: {
     translation: {
       inicio: "Home",
-      restaurante: "Restaurant",
-      reservas: "Reservations",
+      restaurantes: "Restaurant",
+      reservas_1: "Reservations",
       sobreNosotros: "About Us",
       admin: "Admin",
       idioma: "Language",
@@ -83,8 +83,11 @@ const resources = {
     },
     bebidas: {
       title: "Drinks",
-      vinos: "Wines"
+      vinos: "Wines",
+      refrescps: "Soft Drinks",
+      cervezas: "Beers",
      },
+
 
      about: {
   title: "About Us",
@@ -204,8 +207,8 @@ menuDia: {
   es: {
     translation: {
       inicio: "Inicio",
-      restaurante: "Restaurante",
-      reserva: "Reservas",
+      restaurantes: "Restaurante",
+      reservas_1: "Reservas",
       sobreNosotros: "Sobre Nosotros",
       admin: "Admin",
       idioma: "Idioma",
@@ -280,9 +283,12 @@ menuDia: {
       faena: "Nos metemos en faena"
     },
 
+
     bebidas: {
      title: "Bebidas",
-     vinos: "Vinos"
+     vinos: "Vinos",
+     refrescos:"Refrescos",
+     cervezas:"Cervezas",
     },
 
     about: {

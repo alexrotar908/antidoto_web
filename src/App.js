@@ -21,6 +21,8 @@ import Merienda from './pages/desayunos/merienda/merienda';
 import MenuDelDia from './pages/menu_del_dia/menu_del_dia';
 import Bebidas from './pages/bebidas/bebidas';
 import Vino from './pages/bebidas/vino/vino';
+import Cervezas from './pages/bebidas/cervezas/cervezas';
+import Refrescos from './pages/bebidas/refrescos/refrescos';
 import AdminEditor from './pages/admin/admin';
 import GestionReserva from './pages/reservas/gestionarReserva/gestionarReserva';
 import Terminos from './pages/reservas/terminos';
@@ -65,6 +67,8 @@ function App() {
             <Route path="/menu_del_dia" element={<MenuDelDia />} />
             <Route path="/bebidas" element={<Bebidas />} />
             <Route path="/vino" element={<Vino />} />
+            <Route path="/cervezas" element={<Cervezas />} />
+            <Route path="/refrescos" element={<Refrescos />} />
             <Route path="/admin" element={<AdminEditor />} />
 
           </Routes>

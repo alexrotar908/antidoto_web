@@ -1,0 +1,116 @@
+.refrescos-main-title {
+  color: #357ABD;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.refrescos-cards-container {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.refrescos-card {
+  flex: 1 1 300px;
+  background-color: #fff5f5;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
+  max-width: 320px;
+}
+
+
+.refrescos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.refrescos-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #357ABD;
+  padding: 15px 0;
+  gap: 20px;
+}
+
+.refrescos-info {
+  flex: 1;
+}
+
+.refrescos-info h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #000000;
+  text-align: left;
+}
+
+.refrescos-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #000000;
+  min-width: 70px;
+  text-align: right;
+}
+
+/* ✅ Media query para móviles hasta 600px */
+@media (max-width: 600px) {
+  .refrescos-main-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .refrescos-cards-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .refrescos-card {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .refrescos-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .refrescos-price {
+    min-width: auto;
+    width: 100%;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .refrescos-info h4 {
+    font-size: 1rem;
+  }
+}
+
+/* ✅ Media query para escritorio desde 768px */
+@media (min-width: 768px) {
+  .refrescos-main-title {
+    font-size: 3rem;
+  }
+
+  .refrescos-card {
+    padding: 25px;
+    max-width: 350px;
+  }
+
+  .refrescos-subtitle {
+    font-size: 2rem;
+  }
+
+  .refrescos-info h4,
+  .refrescos-price {
+    font-size: 1.3rem;
+  }
+}
