@@ -165,7 +165,6 @@ const Reservas = () => {
               type="checkbox"
               checked={aceptaTerminos}
               onChange={(e) => setAceptaTerminos(e.target.checked)}
-              required
             />
             &nbsp; He leído y acepto los <a href="/terminos" target="_blank" rel="noopener noreferrer">Términos y Condiciones</a>
           </label>
