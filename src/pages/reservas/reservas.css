@@ -115,6 +115,32 @@ select {
   margin-bottom: 0.5rem;
 }
 
+.terminos-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.terminos-container input[type="checkbox"] {
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
+}
+
+.terminos-container a {
+  color: gold;
+  text-decoration: underline;
+}
+
+.terminos-container a:hover {
+  text-decoration: none;
+}
+
 @media (max-width: 600px) {
   .reservas-container {
     margin: 2rem 1rem;
@@ -145,6 +171,10 @@ select {
 
   .error {
     font-size: 0.9rem;
+  }
+
+  .terminos-container {
+    font-size: 0.85rem;
   }
 }
 
