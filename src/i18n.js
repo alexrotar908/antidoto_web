@@ -110,6 +110,79 @@ const resources = {
   reportTitle: 'REPORT "ANTÍDOTO BAR RESTAURANTE" \nJavier Hernández',
   reportLink: "View the report in PDF",
 },
+
+reservas: {
+  titulo: "Reserve your table",
+  confirmacion: "Thanks for your reservation! We'll contact you soon.",
+  nombre: "Name",
+  telefono: "Phone number",
+  email: "Email address",
+  personas: "People",
+  seleccionaHora: "Select a time",
+  comentarios: "Special requests (optional)",
+  aceptaTerminos: "I have read and accept the",
+  terminos: "terms and conditions",
+  consienteDatos: "I consent to the",
+  tratamientoDatos: "processing of my personal data",
+  boton: "Book",
+  errorTelefono: "Please enter a valid Spanish phone number.",
+  errorEmail: "Please enter a valid email address.",
+  errorTerminos: "You must accept the terms and conditions to proceed.",
+  errorDatos: "You must consent to data processing to proceed."
+},
+
+consent: {
+  titulo: "Basic Information on Personal Data Protection",
+  intro: "In compliance with the General Data Protection Regulation, the following is informed to the user:",
+  responsableTitulo: "DATA CONTROLLER",
+  identidad: "Name",
+  direccion: "Address",
+  nie: "ID",
+  email: "Email",
+  web: "Website",
+  finalidadTitulo: "PURPOSE OF DATA PROCESSING",
+  finalidad1: "Data will be used for booking management, service provision, and commercial communication. Also to avoid duplicates with restaurants sharing booking software.",
+  finalidad2: "Data will be kept until deletion is requested or no longer necessary.",
+  legitimacion: "LEGAL BASIS",
+  legit1: "Explicit and informed consent",
+  legit2: "Contract execution or precontractual measures",
+  legit3: "Legitimate interest",
+  legit4: "Legal compliance",
+  derechosTitulo: "RIGHTS",
+  derecho1: "Access",
+  derecho1desc: "know if data is being processed",
+  derecho2: "Rectification",
+  derecho2desc: "correct inaccurate data",
+  derecho3: "Opposition",
+  derecho3desc: "stop data processing",
+  derecho4: "Erasure",
+  derecho4desc: "delete your data",
+  derecho5: "Restriction",
+  derecho5desc: "limit modification or deletion",
+  derecho6: "Portability",
+  derecho6desc: "receive data in a clear format",
+  comoEjercer: "How to exercise these rights?",
+  contacto: "Write to Calle de Baeza, 11, Chamartín, 28002 Madrid or email: antidoto_bar_restaurante11@antidotobarrestaurante.com",
+  reclamacion: "Or file a claim with the Spanish Data Protection Agency:"
+},
+
+terminos: {
+  cancelacionTitulo: "CANCELLATION POLICY",
+  p1: "Once you make a reservation through the web engine, you will receive a confirmation email with all necessary details.",
+  p2: "If you want to modify the date or number of guests, please call the restaurant in advance to check availability.",
+  p3: "You will receive a message or email days before to reconfirm or cancel your booking.",
+  p4: "Your reservation is only fully confirmed once reconfirmed through those means.",
+  p5: "If you prefer, you can confirm by calling the restaurant before your reservation date.",
+  p6: "If guests do not show up, there is no prior notice, or they fail to cancel within a minimum number of hours before the scheduled time, a charge per person may apply if a cancellation policy is in place.",
+  leEsperamos: "We look forward to welcoming you.",
+
+  avisoLegalTitulo: "LEGAL NOTICE",
+  legal1: "In compliance with REGULATION (EU) 2016/679 OF THE EUROPEAN PARLIAMENT, we inform you that to manage your reservation and send commercial info, personal data processing is required.",
+  legal2: "You may exercise your legal rights by sending a signed letter with ID to the restaurant or via email."
+}
+
+
+
     }
   },
 
@@ -221,6 +294,78 @@ const resources = {
   reportTitle: 'REPORTAJE "ANTÍDOTO BAR RESTAURANTE" \nJavier Hernández',
   reportLink: "Ver el reportaje en PDF",
 },
+
+reservas: {
+  titulo: "Reserva tu mesa",
+  confirmacion: "¡Gracias por reservar! Te contactaremos pronto.",
+  nombre: "Nombre",
+  telefono: "Teléfono",
+  email: "Correo electrónico",
+  personas: "Personas",
+  seleccionaHora: "Selecciona una hora",
+  comentarios: "Comentarios especiales (opcional)",
+  aceptaTerminos: "He leído y acepto los",
+  terminos: "términos y condiciones",
+  consienteDatos: "Consiento el",
+  tratamientoDatos: "tratamiento de mis datos personales",
+  boton: "Reservar",
+  errorTelefono: "Por favor, introduce un número de teléfono español válido.",
+  errorEmail: "Por favor, introduce un correo electrónico válido.",
+  errorTerminos: "Debe aceptar los términos y condiciones para continuar.",
+  errorDatos: "Debe consentir el tratamiento de datos personales para continuar."
+},
+
+consent: {
+  titulo: "Información básica sobre Protección de datos de carácter personal",
+  intro: "En cumplimiento del Reglamento General de Protección de Datos de Carácter Personal, se informa al interesado de lo siguiente:",
+  responsableTitulo: "RESPONSABLE DEL TRATAMIENTO",
+  identidad: "Identidad",
+  direccion: "Dirección postal",
+  nie: "NIE",
+  email: "Correo electrónico",
+  web: "Página web",
+  finalidadTitulo: "FINALIDAD DEL TRATAMIENTO",
+  finalidad1: "Se tratarán los datos para la gestión de la reserva, la prestación del servicio y prospección comercial, así como para evitar duplicidades con otros restaurantes.",
+  finalidad2: "Los datos se conservarán mientras no se solicite su supresión o dejen de ajustarse a la finalidad para la que fueron recabados.",
+  legitimacion: "LEGITIMACIÓN",
+  legit1: "Consentimiento inequívoco y expreso",
+  legit2: "Ejecución de un contrato o medidas precontractuales",
+  legit3: "Interés legítimo",
+  legit4: "Seguimiento de obligaciones legales",
+  derechosTitulo: "DERECHOS",
+  derecho1: "Acceso",
+  derecho1desc: "saber si se tratan sus datos",
+  derecho2: "Rectificación",
+  derecho2desc: "modificar datos inexactos",
+  derecho3: "Oposición",
+  derecho3desc: "dejar de tratarlos",
+  derecho4: "Supresión",
+  derecho4desc: "eliminarlos",
+  derecho5: "Limitación",
+  derecho5desc: "evitar su modificación o supresión",
+  derecho6: "Portabilidad",
+  derecho6desc: "obtenerlos en formato estructurado",
+  comoEjercer: "¿Cómo ejercer sus derechos?",
+  contacto: "Por escrito a Calle de Baeza, 11, Chamartín, 28002 Madrid, o por email a antidoto_bar_restaurante11@antidotobarrestaurante.com",
+  reclamacion: "También puede presentar una reclamación ante la AEPD:"
+},
+
+terminos: {
+  cancelacionTitulo: "POLÍTICA DE CANCELACIÓN",
+  p1: "Una vez hecha la reserva a través del motor web recibirá un correo electrónico confirmando la validez de la misma con toda la información correspondiente.",
+  p2: "Si desea modificar la fecha de reserva o el número de comensales, su petición será atendida siempre y cuando se realice con una antelación mínima de la hora concertada, y si existen plazas disponibles. Puede llevar a cabo el trámite llamando al teléfono del restaurante.",
+  p3: "Le comunicamos que días antes de la fecha y hora reservada, recibirá un mail o SMS donde deberá reconfirmar o cancelar la reserva en los enlaces que están habilitados para tal efecto, si existieran.",
+  p4: "Sólo una vez reconfirmada la reserva por usted desde el email o sms, tendrá su reserva completamente confirmada.",
+  p5: "Si lo prefiere puede llevar a cabo la confirmación llamando al teléfono del restaurante antes de la fecha de reserva.",
+  p6: "En caso que los comensales no se presentaran, no existiera aviso alguno por su parte o no cancelen con un mínimo de horas de antelación a la hora reservada, se procedería a cobrar el importe correspondiente por persona, en caso de que la reserva llevara una política de cancelación asociada.",
+  leEsperamos: "Le esperamos.",
+
+  avisoLegalTitulo: "AVISO LEGAL",
+  legal1: "En cumplimiento del REGLAMENTO (UE) 2016/679 DEL PARLAMENTO EUROPEO Y DEL CONSEJO de 27 de abril de 2016 sobre protección de datos personales, le informamos que con el fin de gestionar su reserva y remitirle información comercial, se requiere su consentimiento para el tratamiento de datos personales.",
+  legal2: "Podrá ejercer sus derechos de acceso, rectificación, cancelación, oposición, portabilidad y olvido enviando un escrito con copia de su DNI al restaurante o por correo electrónico."
+},
+
+
    }
   }
 };

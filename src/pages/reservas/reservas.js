@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import '../reservas/reservas.css';
+import { useTranslation } from 'react-i18next';
 
 const Reservas = () => {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     nombre: '',
     telefono: '',
@@ -38,25 +41,25 @@ const Reservas = () => {
     e.preventDefault();
 
     if (!esTelefonoValido(formData.telefono)) {
-      setErrorTelefono('Por favor, introduce un número de teléfono español válido.');
+      setErrorTelefono(t('reservas.errorTelefono'));
       return;
     }
     setErrorTelefono('');
 
     if (!esEmailValido(formData.email)) {
-      setErrorEmail('Por favor, introduce un correo electrónico válido.');
+      setErrorEmail(t('reservas.errorEmail'));
       return;
     }
     setErrorEmail('');
 
     if (!aceptaTerminos) {
-      setErrorTerminos('Debe aceptar los términos y condiciones para continuar.');
+      setErrorTerminos(t('reservas.errorTerminos'));
       return;
     }
     setErrorTerminos('');
 
     if (!consienteDatos) {
-      setErrorDatos('Debe consentir el tratamiento de datos personales para continuar.');
+      setErrorDatos(t('reservas.errorDatos'));
       return;
     }
     setErrorDatos('');
@@ -85,11 +88,11 @@ const Reservas = () => {
         setAceptaTerminos(false);
         setConsienteDatos(false);
       } else {
-        alert('Error al enviar la reserva. Inténtalo más tarde.');
+        alert(t('reservas.errorEnvio'));
       }
     } catch (err) {
       console.error(err);
-      alert('Error de conexión. Inténtalo más tarde.');
+      alert(t('reservas.errorConexion'));
     }
   };
 
@@ -149,25 +152,25 @@ const Reservas = () => {
 
   return (
     <div className="reservas-container">
-      <h2>Reserva tu mesa</h2>
+      <h2>{t('reservas.titulo')}</h2>
       {enviado ? (
-        <p className="confirmacion">¡Gracias por reservar! Te contactaremos pronto.</p>
+        <p className="confirmacion">{t('reservas.confirmacion')}</p>
       ) : (
         <form onSubmit={handleSubmit} className="reserva-form">
-          <input type="text" name="nombre" placeholder="Nombre" value={formData.nombre} onChange={handleChange} required />
-          <input type="tel" name="telefono" placeholder="Teléfono" value={formData.telefono} onChange={handleChange} required />
+          <input type="text" name="nombre" placeholder={t('reservas.nombre')} value={formData.nombre} onChange={handleChange} required />
+          <input type="tel" name="telefono" placeholder={t('reservas.telefono')} value={formData.telefono} onChange={handleChange} required />
           {errorTelefono && <p className="error">{errorTelefono}</p>}
-          <input type="email" name="email" placeholder="Correo electrónico" value={formData.email} onChange={handleChange} required />
+          <input type="email" name="email" placeholder={t('reservas.email')} value={formData.email} onChange={handleChange} required />
           {errorEmail && <p className="error">{errorEmail}</p>}
-          <input type="number" name="personas" placeholder="Personas" value={formData.personas} onChange={handleChange} required min="1" />
+          <input type="number" name="personas" placeholder={t('reservas.personas')} value={formData.personas} onChange={handleChange} required min="1" />
           <input type="date" name="fecha" value={formData.fecha} onChange={handleChange} required min={today} />
           <select name="hora" value={formData.hora} onChange={handleChange} required>
-            <option value="">Selecciona una hora</option>
+            <option value="">{t('reservas.seleccionaHora')}</option>
             {getOpcionesHora().map((hora) => (
               <option key={hora} value={hora}>{hora}</option>
             ))}
           </select>
-          <textarea name="comentarios" placeholder="Comentarios especiales (opcional)" value={formData.comentarios} onChange={handleChange} />
+          <textarea name="comentarios" placeholder={t('reservas.comentarios')} value={formData.comentarios} onChange={handleChange} />
 
           <label className="checkbox-label">
             <input
@@ -175,7 +178,8 @@ const Reservas = () => {
               checked={aceptaTerminos}
               onChange={(e) => setAceptaTerminos(e.target.checked)}
             />
-            &nbsp; He leído y acepto los <a href="/terminos" target="_blank" rel="noopener noreferrer">términos y condiciones</a>
+            &nbsp; {t('reservas.aceptaTerminos')}&nbsp;
+            <a href="/terminos" target="_blank" rel="noopener noreferrer">{t('reservas.terminos')}</a>
           </label>
           {errorTerminos && <p className="error">{errorTerminos}</p>}
 
@@ -185,11 +189,12 @@ const Reservas = () => {
               checked={consienteDatos}
               onChange={(e) => setConsienteDatos(e.target.checked)}
             />
-            &nbsp; Consiento el <a href="/consentimiento" target="_blank" rel="noopener noreferrer">tratamiento de mis datos personales</a>
+            &nbsp; {t('reservas.consienteDatos')}&nbsp;
+            <a href="/consentimiento" target="_blank" rel="noopener noreferrer">{t('reservas.tratamientoDatos')}</a>
           </label>
           {errorDatos && <p className="error">{errorDatos}</p>}
 
-          <button type="submit">Reservar</button>
+          <button type="submit">{t('reservas.boton')}</button>
         </form>
       )}
     </div>
