@@ -1,20 +1,46 @@
-.carnes-section {
+/* CONTENEDOR PRINCIPAL */
+.carnes-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 40px 20px;
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #fff5f5;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
 }
 
-.carnes-title {
+/* TÍTULO PRINCIPAL */
+.carnes-main-title {
   color: #357ABD;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 30px;
   text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  border-bottom: none;
 }
 
+.carnes-main-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1850px; /* ajustable */
+  height: 2px;
+  background-color: #dadbdf;
+  bottom: -10px;
+}
+
+/* TARJETA CONTENEDORA */
+.carnes-card {
+  background-color: #fff5f5;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* LISTA DE PRODUCTOS */
 .carnes-list {
   list-style: none;
   padding: 0;
@@ -23,49 +49,34 @@
 
 .carnes-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #357ABD;
   padding: 15px 0;
-  gap: 20px; /* espacio entre imagen y texto */
 }
 
-.carnes-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: 0 3px 8px rgba(63, 145, 221, 0.4);
-  flex-shrink: 0; /* para que la imagen no se reduzca */
-}
-
-.carnes-info {
-  flex: 1; /* que ocupe el espacio disponible */
-}
-
-.carnes-info h3 {
+.carnes-info h4 {
   margin: 0;
-  font-size: 1.5rem;
-  color: #000000;
+  font-size: 1.3rem;
+  color: #000;
   text-align: left;
-}
-
-.carnes-info p {
-  margin: 5px 0 0 0;
-  color: #555;
-  font-size: 1rem;
 }
 
 .carnes-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #000000;
-  min-width: 70px;
+  color: #000;
   text-align: right;
+}
+
+/* BOTÓN VOLVER */
+.back-button-inside {
+  margin-top: 40px;
+  text-align: center;
 }
 
 .back-button {
   display: inline-block;
-  margin-top: 30px;
   color: #357ABD;
   font-weight: bold;
   text-decoration: none;
@@ -81,49 +92,49 @@
   color: white;
 }
 
-@media (max-width: 480px) {
-  .carnes-section {
-    padding: 20px 10px;
+/* ===== MEDIA QUERY: MÓVIL ===== */
+@media (max-width: 600px) {
+  .carnes-main-title {
+    font-size: 2rem;
+  }
+
+  .carnes-card {
+    padding: 20px;
     max-width: 100%;
   }
 
-  .carnes-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .carnes-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    border-bottom: 1px solid #357ABD;
-    padding: 10px 0;
-  }
-
-  .carnes-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(63, 145, 221, 0.3);
-  }
-
-  .carnes-info h3 {
-    font-size: 1.2rem;
-  }
-
-  .carnes-info p {
-    font-size: 0.9rem;
+  .carnes-info h4 {
+    font-size: 1rem;
   }
 
   .carnes-price {
     font-size: 1.1rem;
-    min-width: auto;
-    align-self: flex-end;
-    text-align: right;
   }
 
   .back-button {
     font-size: 1rem;
     padding: 6px 16px;
+  }
+}
+
+/* ===== MEDIA QUERY: ESCRITORIO ===== */
+@media (min-width: 768px) {
+  .carnes-main-title {
+    font-size: 3rem;
+  }
+
+  .carnes-card {
+    padding: 40px;
+    max-width: 500px;
+  }
+
+  .carnes-info h4,
+  .carnes-price {
+    font-size: 1.4rem;
+  }
+
+  .back-button {
+    font-size: 1.1rem;
+    padding: 10px 25px;
   }
 }

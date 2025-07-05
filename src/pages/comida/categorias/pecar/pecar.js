@@ -22,20 +22,28 @@ function Pecar() {
     idioma === 'es' ? item.tipo_es || item.tipo : item.tipo_en || item.tipo;
 
   return (
-    <section className="pecar-section">
-      <h2 className="pecar-title">{t('comidas.pecar')}</h2>
-      <ul className="pecar-list">
-        {pecarList.map((pecar, index) => (
-          <li key={index} className="pecar-item">
-            <div className="pecar-info">
-              <h3>{traducir(pecar)}</h3>
-            </div>
-            <div className="pecar-price">{pecar.precio}€</div>
-          </li>
-        ))}
-      </ul>
-      <Link to="/comida" className="back-button">← {t('restaurante.volver')}</Link>
-    </section>
+    <div className="pecar-wrapper">
+      <h2 className="pecar-main-title">{t('comidas.pecar')}</h2>
+
+      <div className="pecar-card">
+        <ul className="pecar-list">
+          {pecarList.map((pecar, index) => (
+            <li key={index} className="pecar-item">
+              <div className="pecar-info">
+                <h4>{traducir(pecar)}</h4>
+              </div>
+              <div className="pecar-price">{pecar.precio}€</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="back-button-inside">
+        <Link to="/comida" className="back-button">
+          ← {t('restaurante.volver')}
+        </Link>
+      </div>
+    </div>
   );
 }
 

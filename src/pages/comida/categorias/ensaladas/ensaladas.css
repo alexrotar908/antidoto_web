@@ -1,20 +1,46 @@
-.ensaladas-section {
+/* CONTENEDOR PRINCIPAL */
+.ensaladas-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 40px 20px;
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #fff5f5;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
 }
 
-.ensaladas-title {
+/* TÍTULO PRINCIPAL (ENSALADAS) */
+.ensaladas-main-title {
   color: #357ABD;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 30px;
   text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  border-bottom: none;
 }
 
+.ensaladas-main-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1850px; /* Ajusta este ancho según el efecto deseado */
+  height: 2px;
+  background-color: #dadbdf;
+  bottom: -10px;
+}
+
+/* TARJETA CONTENEDORA */
+.ensaladas-card {
+  background-color: #fff5f5;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* LISTA DE PRODUCTOS */
 .ensaladas-list {
   list-style: none;
   padding: 0;
@@ -23,49 +49,34 @@
 
 .ensaladas-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #357ABD;
   padding: 15px 0;
-  gap: 20px; /* espacio entre imagen y texto */
-}
-
-.ensaladas-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: 0 3px 8px rgba(63, 145, 221, 0.4);
-  flex-shrink: 0; /* para que la imagen no se reduzca */
-}
-
-.ensaladas-info {
-  flex: 1; /* que ocupe el espacio disponible */
 }
 
 .ensaladas-info h3 {
   margin: 0;
-  font-size: 1.5rem;
-  color: #000000;
+  font-size: 1.3rem;
+  color: #000;
   text-align: left;
-}
-
-.ensaladas-info p {
-  margin: 5px 0 0 0;
-  color: #555;
-  font-size: 1rem;
 }
 
 .ensaladas-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #000000;
-  min-width: 70px;
+  color: #000;
   text-align: right;
+}
+
+/* BOTÓN VOLVER */
+.back-button-inside {
+  margin-top: 40px;
+  text-align: center;
 }
 
 .back-button {
   display: inline-block;
-  margin-top: 30px;
   color: #357ABD;
   font-weight: bold;
   text-decoration: none;
@@ -81,40 +92,49 @@
   color: white;
 }
 
-@media (max-width: 480px) {
-  .ensaladas-section {
-    padding: 30px 15px;
+/* ===== MEDIA QUERY: MÓVIL ===== */
+@media (max-width: 600px) {
+  .ensaladas-main-title {
+    font-size: 2rem;
+  }
+
+  .ensaladas-card {
+    padding: 20px;
     max-width: 100%;
   }
 
-  .ensaladas-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .ensaladas-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .ensaladas-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 12px;
-  }
-
   .ensaladas-info h3 {
-    font-size: 1.3rem;
-  }
-
-  .ensaladas-info p {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .ensaladas-price {
-    min-width: auto;
     font-size: 1.1rem;
-    text-align: left;
+  }
+
+  .back-button {
+    font-size: 1rem;
+    padding: 6px 16px;
+  }
+}
+
+/* ===== MEDIA QUERY: ESCRITORIO ===== */
+@media (min-width: 768px) {
+  .ensaladas-main-title {
+    font-size: 3rem;
+  }
+
+  .ensaladas-card {
+    padding: 40px;
+    max-width: 500px;
+  }
+
+  .ensaladas-info h3,
+  .ensaladas-price {
+    font-size: 1.4rem;
+  }
+
+  .back-button {
+    font-size: 1.1rem;
+    padding: 10px 25px;
   }
 }

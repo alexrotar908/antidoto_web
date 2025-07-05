@@ -1,9 +1,22 @@
 .cervezas-main-title {
-  color: #357ABD;
+ color: #357ABD;
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  position: relative; /* Necesario para que ::after sea absoluto dentro */
+  border-bottom: none;
+}
+
+.cervezas-main-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1850px;                /* ✅ Puedes poner lo que quieras aquí */
+  height: 2px;
+  background-color: #dadbdf;
+  bottom: -10px;                /* Ajusta distancia respecto al texto */
 }
 
 .cervezas-cards-container {
@@ -57,7 +70,7 @@
 }
 
 /* ✅ Media query para móviles */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .cervezas-main-title {
     font-size: 2rem;
     margin-bottom: 20px;
@@ -94,7 +107,7 @@
 }
 
 /* ✅ Media query para escritorio */
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .cervezas-main-title {
     font-size: 3rem;
   }

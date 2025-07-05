@@ -22,21 +22,29 @@ function Arroces() {
     idioma === 'es' ? item.tipo_es || item.tipo : item.tipo_en || item.tipo;
 
   return (
-    <section className="arroces-section">
-      <h2 className="arroces-title">{t('comidas.arroces')}</h2>
+    <div className="arroces-wrapper">
+      <h2 className="arroces-main-title">{t('comidas.arroces')}</h2>
       <h3 className="arroces-subtitle">({t('comidas.arrocesNota')})</h3>
-      <ul className="arroces-list">
-        {arrocesList.map((arroces, index) => (
-          <li key={index} className="arroces-item">
-            <div className="arroces-info">
-              <h3>{traducir(arroces)}</h3>
-            </div>
-            <div className="arroces-price">{arroces.precio}€/pers.</div>
-          </li>
-        ))}
-      </ul>
-      <Link to="/comida" className="back-button">← {t('restaurante.volver')}</Link>
-    </section>
+
+      <div className="arroces-card">
+        <ul className="arroces-list">
+          {arrocesList.map((arroces, index) => (
+            <li key={index} className="arroces-item">
+              <div className="arroces-info">
+                <h4>{traducir(arroces)}</h4>
+              </div>
+              <div className="arroces-price">{arroces.precio}€/pers.</div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="back-button-inside">
+        <Link to="/comida" className="back-button">
+          ← {t('restaurante.volver')}
+        </Link>
+      </div>
+    </div>
   );
 }
 

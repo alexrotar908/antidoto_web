@@ -1,82 +1,91 @@
-.merienda-section {
+/* CONTENEDOR PRINCIPAL */
+.meriendas-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 40px 20px;
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #fff5f5;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
 }
 
-.merienda-title {
+/* TÍTULO PRINCIPAL (MERIENDAS) */
+.meriendas-main-title {
   color: #357ABD;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 30px;
   text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  border-bottom: none;
 }
 
-.merienda-description {
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  text-align: justify;
+.meriendas-main-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1850px; /* Ajusta a tu gusto */
+  height: 2px;
+  background-color: #dadbdf;
+  bottom: -10px;
 }
 
-
-.merienda-subtitle {
+/* SUBTÍTULO (si lo necesitas para secciones especiales) */
+.meriendas-subtitle {
   color: #357ABD;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin: 50px 0 30px 0; /* Este margen superior separa mejor las secciones */
+  margin: 30px 0 20px 0;
   text-align: center;
 }
 
-.merienda-list {
+/* TARJETA CONTENEDORA */
+.meriendas-card {
+  background-color: #fff5f5;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* LISTA DE PRODUCTOS */
+.meriendas-list {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.merienda-item {
+.meriendas-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #357ABD;
   padding: 15px 0;
-  gap: 20px;
 }
 
-.merienda-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: 0 3px 8px rgba(63, 145, 221, 0.4);
-  flex-shrink: 0;
-}
-
-.merienda-info {
-  flex: 1;
-}
-
-.merienda-info h3 {
+.meriendas-info h4 {
   margin: 0;
-  font-size: 1.5rem;
-  color: #000000;
+  font-size: 1.3rem;
+  color: #000;
   text-align: left;
 }
 
-.merienda-price {
+.meriendas-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #000000;
-  min-width: 70px;
+  color: #000;
   text-align: right;
+}
+
+/* BOTÓN VOLVER */
+.back-button-inside {
+  margin-top: 40px;
+  text-align: center;
 }
 
 .back-button {
   display: inline-block;
-  margin-top: 30px;
   color: #357ABD;
   font-weight: bold;
   text-decoration: none;
@@ -90,4 +99,59 @@
 .back-button:hover {
   background-color: #357ABD;
   color: white;
+}
+
+/* ===== MEDIA QUERY: MÓVIL ===== */
+@media (max-width: 600px) {
+  .meriendas-main-title {
+    font-size: 2rem;
+  }
+
+  .meriendas-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .meriendas-card {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .meriendas-info h4 {
+    font-size: 1rem;
+  }
+
+  .meriendas-price {
+    font-size: 1.1rem;
+  }
+
+  .back-button {
+    font-size: 1rem;
+    padding: 6px 16px;
+  }
+}
+
+/* ===== MEDIA QUERY: ESCRITORIO ===== */
+@media (min-width: 768px) {
+  .meriendas-main-title {
+    font-size: 3rem;
+  }
+
+  .meriendas-subtitle {
+    font-size: 2rem;
+  }
+
+  .meriendas-card {
+    padding: 40px;
+    max-width: 500px;
+  }
+
+  .meriendas-info h4,
+  .meriendas-price {
+    font-size: 1.4rem;
+  }
+
+  .back-button {
+    font-size: 1.1rem;
+    padding: 10px 25px;
+  }
 }

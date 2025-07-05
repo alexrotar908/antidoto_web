@@ -26,30 +26,34 @@ const TostasBocadillos = () => {
     idioma === 'es' ? item.tipo_es || item.tipo : item.tipo_en || item.tipo;
 
   return (
-    <div className="tostas-bocadillos-container">
-      <div className="card bocadillos">
-        <h2>{t('tostas_bocadillos.bocadillos')}</h2>
-        <ul>
-          {bocadillos.map((item, index) => (
-            <li key={index}>
-              {traducir(item)} <span className="price">{item.precio}€</span>
-            </li>
-          ))}
-        </ul>
+    <div className="tostas-bocadillos-wrapper">
+      <h2 className="tostas-bocadillos-main-title">{t('restaurante.tostasBocadillos')}</h2>
+
+      <div className="tostas-bocadillos-container">
+        <div className="card bocadillos">
+          <h2>{t('tostas_bocadillos.bocadillos')}</h2>
+          <ul>
+            {bocadillos.map((item, index) => (
+              <li key={index}>
+                {traducir(item)} <span className="price">{item.precio}€</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="card tostas">
+          <h2>{t('tostas_bocadillos.tostas')}</h2>
+          <ul>
+            {tostas.map((item, index) => (
+              <li key={index}>
+                {traducir(item)} <span className="price">{item.precio}€</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
-      <div className="card tostas">
-        <h2>{t('tostas_bocadillos.tostas')}</h2>
-        <ul>
-          {tostas.map((item, index) => (
-            <li key={index}>
-              {traducir(item)} <span className="price">{item.precio}€</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="link-container">
+      <div className="back-button-inside">
         <Link to="/restaurante" className="back-button">
           ← {t('restaurante.volver')}
         </Link>

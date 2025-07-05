@@ -22,26 +22,42 @@ function Tapas() {
     idioma === 'es' ? item.tipo_es || item.tipo : item.tipo_en || item.tipo;
 
   return (
-    <section className="entrantes-section">
-      <h2 className="entrantes-title">{t('comidas.entrantes')}</h2>
-      <ul className="entrantes-list">
-        {entrantesList.map((entrante) => (
-          <li key={entrante.id} className="entrantes-item">
-            <div className="entrantes-info">
-              <h3>{traducir(entrante)}</h3>
-            </div>
-            <div className="entrantes-price">
-              {entrante.precio}€
-              {entrante.por_unidad && ' /ud.'}
-              {entrante.precio_media && (
-                <span> / {t('comun.media')}: {entrante.precio_media}€</span>
+    <div className="entrantes-wrapper">
+      <h2 className="entrantes-main-title">{t('comidas.entrantes')}</h2>
+
+      <div className="entrantes-card">
+        <ul className="entrantes-list">
+          {entrantesList.map((entrante) => (
+            <li key={entrante.id} className="entrantes-item">
+              {entrante.imagen && (
+                <img
+                  src={entrante.imagen}
+                  alt={traducir(entrante)}
+                  className="entrantes-image"
+                />
               )}
-            </div>
-          </li>
-        ))}
-      </ul>
-      <Link to="/comida" className="back-button">← {t('restaurante.volver')}</Link>
-    </section>
+              <div className="entrantes-info">
+                <h3>{traducir(entrante)}</h3>
+                {entrante.descripcion && <p>{entrante.descripcion}</p>}
+              </div>
+              <div className="entrantes-price">
+                {entrante.precio}€
+                {entrante.por_unidad && ' /ud.'}
+                {entrante.precio_media && (
+                  <span> / {t('comun.media')}: {entrante.precio_media}€</span>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="back-button-inside">
+        <Link to="/comida" className="back-button">
+          ← {t('restaurante.volver')}
+        </Link>
+      </div>
+    </div>
   );
 }
 

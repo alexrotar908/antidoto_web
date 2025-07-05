@@ -1,9 +1,42 @@
-.tostas-bocadillos-container {
+.tostas-bocadillos-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* TÍTULO PRINCIPAL */
+.tostas-bocadillos-main-title {
+  color: #357ABD;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  border-bottom: none;
+}
+
+.tostas-bocadillos-main-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1850px; /* puedes ajustar este valor si hace falta */
+  height: 2px;
+  background-color: #dadbdf;
+  bottom: -10px;
+}
+
+/* TARJETAS */
+.tostas-bocadillos-container { 
   display: flex;
   justify-content: space-evenly;
   padding: 2rem;
-  background-color: #fdfcfb;
+  background-color: transparent;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .card {
@@ -49,9 +82,18 @@
   color: #ffd700;
 }
 
+/* BOTÓN VOLVER */
+
+
+.back-button-inside {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .back-button {
   display: inline-block;
-  margin-top: 30px;
   color: #357ABD;
   font-weight: bold;
   text-decoration: none;
@@ -67,17 +109,21 @@
   color: white;
 }
 
-.link-container {
-  width: 100%;
-  text-align: center;
-  margin-top: 1rem;
-}
-
+/* RESPONSIVE */
 @media (max-width: 600px) {
-  .tostas-bocadillos-container {
+  .tostas-bocadillos-wrapper {
     padding: 1rem;
+  }
+
+  .tostas-bocadillos-main-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .tostas-bocadillos-container {
     flex-direction: column;
     align-items: center;
+    padding: 0;
   }
 
   .card {
@@ -103,6 +149,34 @@
   .back-button {
     font-size: 1rem;
     padding: 6px 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .tostas-bocadillos-main-title {
+    font-size: 3rem;
+  }
+
+  .card {
+    max-width: 400px;
+    padding: 2rem;
+  }
+
+  .card h2 {
+    font-size: 26px;
+  }
+
+  .card li {
+    font-size: 17px;
+  }
+
+  .price {
+    font-size: 1.2rem;
+  }
+
+  .back-button {
+    font-size: 1.1rem;
+    padding: 10px 25px;
   }
 }
 

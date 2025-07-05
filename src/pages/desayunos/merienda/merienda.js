@@ -14,7 +14,6 @@ function Merienda() {
       const meriendas = await getMeriendas();
       setMeriendaList(meriendas);
     }
-
     fetchMeriendas();
   }, []);
 
@@ -22,25 +21,28 @@ function Merienda() {
     idioma === 'es' ? item.tipo_es || item.tipo : item.tipo_en || item.tipo;
 
   return (
-    <section className="merienda-section">
-      <h2 className="merienda-title">{t('merienda.title')}</h2>
-      <p className="merienda-description">{t('merienda.description')}</p>
+    <div className="meriendas-wrapper">
+      <h2 className="meriendas-main-title">{t('merienda.title', 'MERIENDAS')}</h2>
 
-      <ul className="merienda-list">
-        {meriendaList.map((merienda, index) => (
-          <li key={index} className="merienda-item">
-            <div className="merienda-info">
-              <h3>{traducir(merienda)}</h3>
-            </div>
-            <div className="merienda-price">{merienda.precio}€</div>
-          </li>
-        ))}
-      </ul>
+      <div className="meriendas-card">
+        <ul className="meriendas-list">
+          {meriendaList.map((item, index) => (
+            <li key={index} className="meriendas-item">
+              <div className="meriendas-info">
+                <h4>{traducir(item)}</h4>
+              </div>
+              <div className="meriendas-price">{item.precio}€</div>
+            </li>
+          ))}
+        </ul>
+      </div>
 
-      <Link to="/desayunos-meriendas" className="back-button">
-        {t('desayunos.volver')}
-      </Link>
-    </section>
+      <div className="back-button-inside">
+        <Link to="/desayunos-meriendas" className="back-button">
+          ← {t('desayunos.volver', 'Desayunos & Meriendas')}
+        </Link>
+      </div>
+    </div>
   );
 }
 

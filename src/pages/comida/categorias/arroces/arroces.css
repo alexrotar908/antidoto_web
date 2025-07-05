@@ -1,29 +1,55 @@
-.arroces-section {
+/* CONTENEDOR PRINCIPAL */
+.arroces-wrapper {
+  background-color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 40px 20px;
-  max-width: 700px;
-  margin: 0 auto;
-  background-color: #fff5f5;
-  border-radius: 15px;
-  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
 }
 
-.arroces-title {
+/* TÍTULO PRINCIPAL */
+.arroces-main-title {
   color: #357ABD;
   font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 30px;
   text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+  border-bottom: none;
 }
 
+.arroces-main-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1850px;
+  height: 2px;
+  background-color: #dadbdf;
+  bottom: -10px;
+}
+
+/* SUBTÍTULO (si lo usas) */
 .arroces-subtitle {
   color: #357ABD;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin: 30px 0 20px 0;
   text-align: center;
 }
 
+/* TARJETA CONTENEDORA */
+.arroces-card {
+  background-color: #fff5f5;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
+  max-width: 500px;
+  width: 100%;
+}
 
+/* LISTA DE ARROCES */
 .arroces-list {
   list-style: none;
   padding: 0;
@@ -32,49 +58,34 @@
 
 .arroces-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #357ABD;
   padding: 15px 0;
-  gap: 20px; /* espacio entre imagen y texto */
 }
 
-.arroces-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 15px;
-  object-fit: cover;
-  box-shadow: 0 3px 8px rgba(63, 145, 221, 0.4);
-  flex-shrink: 0; /* para que la imagen no se reduzca */
-}
-
-.arroces-info {
-  flex: 1; /* que ocupe el espacio disponible */
-}
-
-.arroces-info h3 {
+.arroces-info h4 {
   margin: 0;
-  font-size: 1.5rem;
-  color: #000000;
+  font-size: 1.3rem;
+  color: #000;
   text-align: left;
-}
-
-.arroces-info p {
-  margin: 5px 0 0 0;
-  color: #555;
-  font-size: 1rem;
 }
 
 .arroces-price {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #000000;
-  min-width: 70px;
+  color: #000;
   text-align: right;
+}
+
+/* BOTÓN VOLVER */
+.back-button-inside {
+  margin-top: 40px;
+  text-align: center;
 }
 
 .back-button {
   display: inline-block;
-  margin-top: 30px;
   color: #357ABD;
   font-weight: bold;
   text-decoration: none;
@@ -90,50 +101,57 @@
   color: white;
 }
 
-@media (max-width: 480px) {
-  .arroces-section {
-    padding: 20px 10px;
+/* ===== MEDIA QUERY: MÓVIL ===== */
+@media (max-width: 600px) {
+  .arroces-main-title {
+    font-size: 2rem;
+  }
+
+  .arroces-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .arroces-card {
+    padding: 20px;
     max-width: 100%;
   }
 
-  .arroces-title,
-  .arroces-subtitle {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .arroces-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid #357ABD;
-  }
-
-  .arroces-image {
-    width: 80px;
-    height: 80px;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(63, 145, 221, 0.3);
-  }
-
-  .arroces-info h3 {
-    font-size: 1.2rem;
-  }
-
-  .arroces-info p {
-    font-size: 0.9rem;
+  .arroces-info h4 {
+    font-size: 1rem;
   }
 
   .arroces-price {
     font-size: 1.1rem;
-    min-width: auto;
-    align-self: flex-end;
-    text-align: right;
   }
 
   .back-button {
     font-size: 1rem;
     padding: 6px 16px;
+  }
+}
+
+/* ===== MEDIA QUERY: ESCRITORIO ===== */
+@media (min-width: 768px) {
+  .arroces-main-title {
+    font-size: 3rem;
+  }
+
+  .arroces-subtitle {
+    font-size: 2rem;
+  }
+
+  .arroces-card {
+    padding: 40px;
+    max-width: 600px;
+  }
+
+  .arroces-info h4,
+  .arroces-price {
+    font-size: 1.4rem;
+  }
+
+  .back-button {
+    font-size: 1.1rem;
+    padding: 10px 25px;
   }
 }

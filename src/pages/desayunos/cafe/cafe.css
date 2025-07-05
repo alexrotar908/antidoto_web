@@ -1,54 +1,87 @@
-/* CONTENEDOR GLOBAL */
-.cafe-page-wrapper {
+/* CONTENEDOR PRINCIPAL */
+.cafe-wrapper {
   background-color: #f8fafc;
-  width: 100vw;
-  height: 100vh; /* Ocupa toda la pantalla */
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: stretch;
-  margin: 0;
-  padding: 0;
-}
-
-/* FLEX en fila */
-.cafe-flex-container {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-}
-
-/* IMAGEN */
-.cafe-left-image-wrapper {
-  width: 65%;
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-end;
-  flex-shrink: 0;
-}
-
-.cafe-bg-image {
-  width: 175%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0;
-}
-
-/* TARJETA DE CAFÉS */
-.cafe-section {
-  width: 60%;
+  flex-direction: column;
+  align-items: center;
   padding: 40px 20px;
-  background-color: #fff5f5;
-  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
-  overflow-y: auto;
-  border-radius: 0;
 }
 
-/* Botón */
+/* TÍTULO PRINCIPAL (CAFÉS) */
+.cafe-main-title {
+  color: #357ABD;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative; /* Necesario para que ::after sea absoluto dentro */
+  border-bottom: none;
+}
+
+
+.cafe-main-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1850px;                /* ✅ Puedes poner lo que quieras aquí */
+  height: 2px;
+  background-color: #dadbdf;
+  bottom: -10px;                /* Ajusta distancia respecto al texto */
+}
+
+/* SUBTÍTULO (CAFÉS ESPECIALES) */
+.cafe-subtitle {
+  color: #357ABD;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 30px 0 20px 0;
+  text-align: center;
+}
+
+/* TARJETA CONTENEDORA */
+.cafe-card {
+  background-color: #fff5f5;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(63, 145, 221, 0.4);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* LISTA DE PRODUCTOS */
+.cafe-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cafe-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #357ABD;
+  padding: 15px 0;
+}
+
+.cafe-info h4 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #000;
+  text-align: left;
+}
+
+.cafe-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #000;
+  text-align: right;
+}
+
+/* BOTÓN VOLVER */
 .back-button-inside {
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -69,87 +102,22 @@
   color: white;
 }
 
-/* Textos */
-.cafe-title {
-  color: #357ABD;
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.cafe-description {
-  font-size: 1.1rem;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 30px;
-  text-align: justify;
-}
-
-.cafe-subtitle {
-  color: #357ABD;
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 50px 0 30px 0;
-  text-align: center;
-}
-
-/* Lista */
-.cafe-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.cafe-item {
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #357ABD;
-  padding: 15px 0;
-  gap: 20px;
-}
-
-.cafe-info {
-  flex: 1;
-}
-
-.cafe-info h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #000;
-  text-align: left;
-}
-
-.cafe-price {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #000;
-  min-width: 70px;
-  text-align: right;
-}
-
-/* MEDIA QUERY: MÓVIL */
+/* ===== MEDIA QUERY: MÓVIL ===== */
 @media (max-width: 600px) {
-  .cafe-flex-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cafe-left-image-wrapper {
-    display: none;
-  }
-
-  .cafe-section {
-    width: 100%;
-    padding: 20px;
-    height: auto;
-  }
-
-  .cafe-title {
+  .cafe-main-title {
     font-size: 2rem;
   }
 
-  .cafe-description {
+  .cafe-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .cafe-card {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .cafe-info h4 {
     font-size: 1rem;
   }
 
@@ -163,24 +131,28 @@
   }
 }
 
-/* MEDIA QUERY: ESCRITORIO */
+/* ===== MEDIA QUERY: ESCRITORIO ===== */
 @media (min-width: 768px) {
-  .cafe-flex-container {
-    flex-direction: row;
-    align-items: stretch;
-    justify-content: center;
+  .cafe-main-title {
+    font-size: 3rem;
   }
 
-  .cafe-section {
-    padding: 70px 30px;
+  .cafe-subtitle {
+    font-size: 2rem;
+  }
+
+  .cafe-card {
+    padding: 40px;
+    max-width: 500px;
+  }
+
+  .cafe-info h4,
+  .cafe-price {
+    font-size: 1.4rem;
   }
 
   .back-button {
     font-size: 1.1rem;
-    padding: 8px 20px;
-  }
-
-  .cafe-title {
-    font-size: 2.8rem;
+    padding: 10px 25px;
   }
 }
