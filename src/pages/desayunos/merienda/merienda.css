@@ -130,7 +130,7 @@
   }
 
   /* ✅ EVITA SCROLL LATERAL POR LA LÍNEA ::after */
-  .merienda-main-title::after {
+  .meriendas-main-title::after {
     width: 90vw;
     max-width: 100%;
   }
