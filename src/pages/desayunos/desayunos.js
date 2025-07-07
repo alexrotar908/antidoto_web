@@ -18,11 +18,6 @@ const Desayunos = () => {
   return (
     <div className="desayunos-container">
       
-      <div className="link-container">
-        <Link to="/restaurante" className="back-button">
-          ←
-        </Link>
-      </div>
 
       <h1>{t('desayunos.title')}</h1>
       <div className="desayunos-grid">
@@ -35,6 +30,13 @@ const Desayunos = () => {
           </Link>
         ))}
       </div>
+
+      <div className="link-container">
+        <Link to="/restaurante" className="back-button">
+          ← {t('restaurante.volver')}
+        </Link>
+      </div>
+
 
       <div className="momento-desayuno">
         <h2>{t('desayunos.momentoTitulo')}</h2>

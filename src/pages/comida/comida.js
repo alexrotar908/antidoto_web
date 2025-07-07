@@ -39,7 +39,7 @@ function Comida() {
           <img src={pecarImg} alt="pecar" /> {t('comidas.pecar')}
         </Link>
         <Link to="/restaurante" className="back-button">
-          {t('restaurante.volver')}
+          ← {t('restaurante.volver')}
         </Link>
       </div>
     </section>
