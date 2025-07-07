@@ -129,6 +129,19 @@
     font-size: 1rem;
     padding: 6px 16px;
   }
+
+  /* ✅ EVITA SCROLL LATERAL POR LA LÍNEA ::after */
+  .cafe-main-title::after {
+    width: 90vw;
+    max-width: 100%;
+  }
+
+  /* ✅ Asegura que el scroll lateral no se genere */
+  body,
+  html,
+  #root {
+    overflow-x: hidden;
+  }
 }
 
 /* ===== MEDIA QUERY: ESCRITORIO ===== */
