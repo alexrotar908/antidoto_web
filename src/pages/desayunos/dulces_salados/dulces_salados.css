@@ -76,3 +76,61 @@
   min-width: 70px;
   text-align: right;
 }
+
+
+/* ====================== MEDIA QUERY: MÓVIL ====================== */
+@media (max-width: 600px) {
+  .dulce-main-title {
+    font-size: 2rem;
+  }
+
+  .dulce-main-title::after {
+    width: 90vw;
+    max-width: 100%;
+  }
+
+  .dulce-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .dulce-card {
+    padding: 16px;
+    max-width: 100%;
+  }
+
+  .dulce-info h4 {
+    font-size: 1rem;
+  }
+
+  .dulce-price {
+    font-size: 1rem;
+    min-width: 60px;
+  }
+
+  body,
+  html,
+  #root {
+    overflow-x: hidden;
+  }
+}
+
+/* ====================== MEDIA QUERY: ESCRITORIO ====================== */
+@media (min-width: 768px) {
+  .dulce-main-title {
+    font-size: 3rem;
+  }
+
+  .dulce-subtitle {
+    font-size: 2rem;
+  }
+
+  .dulce-card {
+    padding: 30px;
+    max-width: 350px;
+  }
+
+  .dulce-info h4,
+  .dulce-price {
+    font-size: 1.4rem;
+  }
+}

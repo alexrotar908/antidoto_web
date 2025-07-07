@@ -77,10 +77,16 @@
   text-align: right;
 }
 
-@media (max-width: 480px) {
+/* ====================== MEDIA QUERY: MÓVIL ====================== */
+@media (max-width: 600px) {
   .vino-main-title {
     font-size: 2rem;
     margin-bottom: 20px;
+  }
+
+  .vino-main-title::after {
+    width: 90vw;
+    max-width: 100%;
   }
 
   .vino-cards-container {
@@ -111,9 +117,37 @@
     width: 100%;
     text-align: left;
     font-weight: 600;
+    font-size: 1rem;
   }
 
   .vino-info h4 {
     font-size: 1rem;
+  }
+
+  body,
+  html,
+  #root {
+    overflow-x: hidden;
+  }
+}
+
+/* ====================== MEDIA QUERY: ESCRITORIO ====================== */
+@media (min-width: 768px) {
+  .vino-main-title {
+    font-size: 3rem;
+  }
+
+  .vino-subtitle {
+    font-size: 2rem;
+  }
+
+  .vino-card {
+    padding: 30px;
+    max-width: 350px;
+  }
+
+  .vino-info h4,
+  .vino-price {
+    font-size: 1.4rem;
   }
 }

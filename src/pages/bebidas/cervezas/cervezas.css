@@ -104,6 +104,19 @@
   .cervezas-info h4 {
     font-size: 1rem;
   }
+
+  /* ✅ EVITA SCROLL LATERAL POR LA LÍNEA ::after */
+  .cafe-main-title::after {
+    width: 90vw;
+    max-width: 100%;
+  }
+
+  /* ✅ Asegura que el scroll lateral no se genere */
+  body,
+  html,
+  #root {
+    overflow-x: hidden;
+  }
 }
 
 /* ✅ Media query para escritorio */
