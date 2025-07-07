@@ -91,24 +91,70 @@
   margin-top: 1rem;
 }
 
-/* Estilos para móviles */
-@media (max-width: 480px) {
+/* ----------------------------- */
+/*        MEDIA QUERY MÓVIL      */
+/* ----------------------------- */
+@media (max-width: 600px) {
   .bebidas-container {
-    padding: 20px 10px;
+    padding: 20px 15px;
   }
-  
+
   .bebidas-grid {
     gap: 20px;
     margin-top: 20px;
     margin-bottom: 40px;
   }
-  
+
   .bebidas-card {
     height: 220px;
   }
-  
+
   .bebidas-content {
     font-size: 16px;
     top: 10px;
   }
+
+  .back-button {
+    font-size: 1rem;
+    padding: 6px 16px;
+  }
+
+  .link-container {
+    margin-top: 20px;
+    justify-content: center;
+  }
 }
+
+/* ----------------------------- */
+/*      MEDIA QUERY ESCRITORIO   */
+/* ----------------------------- */
+@media (min-width: 768px) {
+  .bebidas-container {
+    padding: 50px 40px;
+  }
+
+  .bebidas-grid {
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+
+  .bebidas-card {
+    height: 300px;
+  }
+
+  .bebidas-content {
+    font-size: 20px;
+    top: 15px;
+  }
+
+  .back-button {
+    font-size: 1.1rem;
+    padding: 8px 20px;
+  }
+
+  .link-container {
+    margin-top: 30px;
+  }
+}
+

@@ -139,6 +139,7 @@ momento-desayuno {
   .link-container {
     justify-content: flex-start;
     margin-bottom: 10px;
+    justify-content: center;
   }
 
   .back-button {

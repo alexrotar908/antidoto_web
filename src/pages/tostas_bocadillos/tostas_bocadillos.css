@@ -126,6 +126,12 @@
     padding: 0;
   }
 
+  .back-button-inside {
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+
   .card {
     width: 90%;
     min-height: auto;

@@ -59,8 +59,6 @@
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-
-
 .comida-card h3 {
   margin: 0;
   font-size: 1.3rem;
@@ -111,7 +109,10 @@
   color: white;
 }
 
-@media (max-width: 480px) {
+/* ----------------------------- */
+/*        MEDIA QUERY MÓVIL      */
+/* ----------------------------- */
+@media (max-width: 600px) {
   .comida-section {
     padding: 30px 15px;
   }
@@ -123,6 +124,7 @@
 
   .comida-categories {
     max-width: 100%;
+    gap: 16px;
   }
 
   .comida-card {
@@ -153,5 +155,55 @@
   .back-button {
     font-size: 1rem;
     padding: 6px 18px;
+    justify-content: center;
+  }
+}
+
+/* ----------------------------- */
+/*      MEDIA QUERY ESCRITORIO   */
+/* ----------------------------- */
+@media (min-width: 768px) {
+  .comida-section {
+    padding: 50px 40px;
+  }
+
+  .comida-title {
+    font-size: 2.8rem;
+    margin-bottom: 35px;
+  }
+
+  .comida-categories {
+    max-width: 800px;
+    gap: 30px;
+  }
+
+  .comida-card {
+    width: 360px;
+    padding: 25px;
+    font-size: 1.6rem;
+  }
+
+  .comida-card img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .comida-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .comida-call-button {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+
+  .comida-button {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+  }
+
+  .back-button {
+    font-size: 1.1rem;
+    padding: 8px 20px;
   }
 }

@@ -41,7 +41,7 @@ function Arroces() {
 
       <div className="back-button-inside">
         <Link to="/comida" className="back-button">
-          ← {t('restaurante.volver')}ssss
+          ← {t('restaurante.volver')}
         </Link>
       </div>
     </div>
