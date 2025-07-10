@@ -116,6 +116,7 @@ const resources = {
 
 reservas: {
   titulo: "Reserve your table",
+  tituloConfirmacion: "Your table reserved",
   confirmacion: "Thanks for your reservation! We'll contact you soon.",
   nombre: "Name",
   telefono: "Phone number",
@@ -317,7 +318,8 @@ menuDia: {
 },
 
 reservas: {
-  titulos: "Reserva tu mesa",
+  titulo: "Reserva tu mesa",
+  tituloConfirmacion: "Mesa Reservada",
   confirmacion: "¡Gracias por reservar! Te contactaremos pronto.",
   nombre: "Nombre",
   telefono: "Teléfono",

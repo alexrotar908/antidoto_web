@@ -177,6 +177,21 @@ select {
   text-decoration: none;
 }
 
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #fff;
+  border-top: 3px solid gold;
+  border-radius: 50%;
+  animation: girar 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media (max-width: 600px) {
   .reservas-container {
     margin: 2rem 1rem;

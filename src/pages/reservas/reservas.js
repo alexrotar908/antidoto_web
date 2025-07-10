@@ -16,6 +16,7 @@ const Reservas = () => {
   });
 
   const [enviado, setEnviado] = useState(false);
+  const [cargando, setCargando] = useState(false);
   const [errorTelefono, setErrorTelefono] = useState('');
   const [errorEmail, setErrorEmail] = useState('');
   const [aceptaTerminos, setAceptaTerminos] = useState(false);
@@ -65,6 +66,8 @@ const Reservas = () => {
     setErrorDatos('');
 
     try {
+      setCargando(true);
+
       const res = await fetch(
         'https://clase-easypanel-1-n8n.dxqu9z.easypanel.host/webhook/reserva_antidoto',
         {
@@ -93,6 +96,8 @@ const Reservas = () => {
     } catch (err) {
       console.error(err);
       alert(t('reservas.errorConexion'));
+    } finally {
+      setCargando(false);
     }
   };
 
@@ -152,7 +157,7 @@ const Reservas = () => {
 
   return (
     <div className="reservas-container">
-      <h2>{t('reservas.titulos')}</h2>
+      <h2>{enviado ? t('reservas.tituloConfirmacion') : t('reservas.titulo')}</h2>
       {enviado ? (
         <p className="confirmacion">{t('reservas.confirmacion')}</p>
       ) : (
@@ -194,7 +199,9 @@ const Reservas = () => {
           </label>
           {errorDatos && <p className="error">{errorDatos}</p>}
 
-          <button type="submit">{t('reservas.boton')}</button>
+          <button type="submit" disabled={cargando}>
+            {cargando ? <span className="spinner"></span> : t('reservas.boton')}
+          </button>
         </form>
       )}
     </div>
