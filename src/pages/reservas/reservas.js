@@ -66,7 +66,7 @@ const Reservas = () => {
 
     try {
       const res = await fetch(
-        'https://clase-easypanel-1-n8n.dxqu9z.easypanel.host/webhook-test/reserva_antidoto',
+        'https://clase-easypanel-1-n8n.dxqu9z.easypanel.host/webhook/reserva_antidoto',
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
