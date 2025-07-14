@@ -99,6 +99,7 @@ export default function MenuDelDiaSection() {
       {tipos.map((tipo) => (
         <div key={tipo} style={{ marginTop: "20px" }}>
           <h3>{tipo.toUpperCase()}S</h3>
+           <div className="tabla-admin">
           <table>
             <thead>
               <tr>
@@ -142,6 +143,7 @@ export default function MenuDelDiaSection() {
                 ))}
             </tbody>
           </table>
+          </div>
         </div>
       ))}
 
