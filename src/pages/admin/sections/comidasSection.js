@@ -133,7 +133,12 @@ export default function ComidasSection() {
                       <th>Tipo (EN)</th>
                     </>
                   )}
-                  {categoriaComida === 'cafes' && <th>Categoría</th>}
+                  {categoriaComida === 'entrantes' && 
+                  <>
+                  <th>Precio media</th>
+                  <th>Por unidad</th>
+                  </>
+                  }
                   <th>Precio</th>
                   <th>Acciones</th>
                 </tr>
