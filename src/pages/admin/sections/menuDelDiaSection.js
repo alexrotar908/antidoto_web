@@ -1,187 +1,211 @@
+// src/pages/admin/sections/MenuDelDiaSection.js
 import React, { useEffect, useState } from "react";
 import { serviciosMenuDelDia } from "../utils/serviciosMenuDelDia";
 
 export default function MenuDelDiaSection() {
-  const [menu, setMenu] = useState(null);
-  const [nuevoPlato, setNuevoPlato] = useState({
-    tipo: "primero",
-    plato: "",
-    plato_es: "",
-    plato_en: ""
-  });
-  const [nuevoPrecio, setNuevoPrecio] = useState("");
+  const [menu, setMenu] = useState(null); // último menú activo
+  const [fecha, setFecha] = useState(() => new Date().toISOString().slice(0, 10));
+
+  // inputs de archivos
+  const [fileEs, setFileEs] = useState(null);
+  const [fileEn, setFileEn] = useState(null);
+
+  // estados de carga
+  const [subiendoEs, setSubiendoEs] = useState(false);
+  const [subiendoEn, setSubiendoEn] = useState(false);
+  const [creando, setCreando] = useState(false);
+  const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    async function cargarMenu() {
+    (async () => {
       const data = await serviciosMenuDelDia.get();
       if (data) {
         setMenu(data);
-        setNuevoPrecio(data.precio.toFixed(2));
+        setFecha(data.fecha);
       }
-    }
-
-    cargarMenu();
+      setCargando(false);
+    })();
   }, []);
 
-  const handleChangePlato = (index, field, value) => {
-    const actualizado = [...menu.menu_platos];
-    actualizado[index][field] = value;
-    setMenu({ ...menu, menu_platos: actualizado });
-  };
+  const onFileEs = (e) => setFileEs(e.target.files?.[0] || null);
+  const onFileEn = (e) => setFileEn(e.target.files?.[0] || null);
 
-  const guardarPlato = async (index) => {
-    const { id, plato, plato_es, plato_en } = menu.menu_platos[index];
-    await serviciosMenuDelDia.updatePlato(id, { plato, plato_es, plato_en });
-  };
-
-  const eliminar = async (id) => {
-    const ok = await serviciosMenuDelDia.deletePlato(id);
-    if (ok) {
-      setMenu(prev => ({
-        ...prev,
-        menu_platos: prev.menu_platos.filter(p => p.id !== id),
-      }));
-    }
-  };
-
-  const crearPlato = async () => {
-    if (!nuevoPlato.plato.trim()) return;
-
-    const creado = await serviciosMenuDelDia.addPlato(
-      menu.id,
-      nuevoPlato.tipo,
-      nuevoPlato.plato.trim(),
-      nuevoPlato.plato_es.trim(),
-      nuevoPlato.plato_en.trim()
-    );
-
+  // Crear nuevo menú con ES y/o EN
+  const crear = async () => {
+    if (!fileEs && !fileEn) return alert("Selecciona al menos una imagen (ES o EN)");
+    setCreando(true);
+    const creado = await serviciosMenuDelDia.createWithImage({
+      fecha,
+      fileEs,
+      fileEn,
+    });
+    setCreando(false);
     if (creado) {
-      setMenu(prev => ({
-        ...prev,
-        menu_platos: [...prev.menu_platos, creado],
-      }));
-      setNuevoPlato({
-        tipo: "primero",
-        plato: "",
-        plato_es: "",
-        plato_en: ""
-      });
+      setMenu(creado);
+      setFileEs(null);
+      setFileEn(null);
+      alert("Menú creado correctamente");
+    } else {
+      alert("No se pudo crear el menú");
     }
   };
 
-  const actualizarPrecio = async () => {
-    const ok = await serviciosMenuDelDia.updatePrecio(menu.id, parseFloat(nuevoPrecio));
+  // ES
+const reemplazarEs = async () => {
+  if (!menu || !fileEs) return alert("Selecciona una imagen ES");
+  setSubiendoEs(true);
+  try {
+    const actualizado = await serviciosMenuDelDia.updateImageByLang(menu.id, "es", fileEs);
+    if (!actualizado) throw new Error("Sin datos devueltos del update");
+    setMenu(actualizado);
+    setFileEs(null);
+    alert("Imagen ES actualizada");
+  } catch (e) {
+    console.error("Fallo al actualizar ES:", e);
+    alert(e?.message || "No se pudo actualizar la imagen ES");
+  } finally {
+    setSubiendoEs(false);
+  }
+};
+
+// EN
+const reemplazarEn = async () => {
+  if (!menu || !fileEn) return alert("Selecciona una imagen EN");
+  setSubiendoEn(true);
+  try {
+    const actualizado = await serviciosMenuDelDia.updateImageByLang(menu.id, "en", fileEn);
+    if (!actualizado) throw new Error("Sin datos devueltos del update");
+    setMenu(actualizado);
+    setFileEn(null);
+    alert("Imagen EN actualizada");
+  } catch (e) {
+    console.error("Fallo al actualizar EN:", e);
+    alert(e?.message || "No se pudo actualizar la imagen EN");
+  } finally {
+    setSubiendoEn(false);
+  }
+};
+
+  const desactivar = async () => {
+    if (!menu) return;
+    const ok = await serviciosMenuDelDia.deactivate(menu.id);
     if (ok) {
-      setMenu(prev => ({ ...prev, precio: parseFloat(nuevoPrecio) }));
+      setMenu(null);
+      alert("Menú desactivado");
+    } else {
+      alert("No se pudo desactivar el menú");
     }
   };
 
-  if (!menu) return <p>Cargando menú del día...</p>;
+  const eliminar = async () => {
+    if (!menu) return;
+    if (!window.confirm("¿Seguro que quieres eliminar este menú y sus imágenes (ES/EN)?")) return;
+    const ok = await serviciosMenuDelDia.delete(menu.id);
+    if (ok) {
+      setMenu(null);
+      alert("Menú eliminado");
+    } else {
+      alert("No se pudo eliminar el menú");
+    }
+  };
 
-  const tipos = ["primero", "segundo", "postre"];
+  if (cargando) return <p>Cargando menú del día...</p>;
 
   return (
     <section>
       <h2>Menú del Día</h2>
-      <p>Fecha: {menu.fecha}</p>
 
-      <label>
-        Precio (€ IVA incluido):
-        <input
-          type="number"
-          step="0.01"
-          value={nuevoPrecio}
-          onChange={(e) => setNuevoPrecio(e.target.value)}
-        />
-        <button className="btn-guardar" onClick={actualizarPrecio}>Guardar Precio</button>
-      </label>
+      {menu ? (
+        <>
+          <p><strong>Fecha:</strong> {menu.fecha}</p>
 
-      {tipos.map((tipo) => (
-        <div key={tipo} style={{ marginTop: "20px" }}>
-          <h3>{tipo.toUpperCase()}S</h3>
-           <div className="tabla-admin">
-          <table>
-            <thead>
-              <tr>
-                <th>Plato</th>
-                <th>Plato (ES)</th>
-                <th>Plato (EN)</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {menu.menu_platos
-                .filter(p => p.tipo === tipo)
-                .map((plato, index) => (
-                  <tr key={plato.id}>
-                    <td>
-                      <input
-                        type="text"
-                        value={plato.plato || ''}
-                        onChange={(e) => handleChangePlato(index, 'plato', e.target.value)}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        value={plato.plato_es || ''}
-                        onChange={(e) => handleChangePlato(index, 'plato_es', e.target.value)}
-                      />
-                    </td>
-                    <td>
-                      <input
-                        type="text"
-                        value={plato.plato_en || ''}
-                        onChange={(e) => handleChangePlato(index, 'plato_en', e.target.value)}
-                      />
-                    </td>
-                    <td>
-                      <button className="btn-guardar" onClick={() => guardarPlato(index)}>Guardar</button>
-                      <button className="btn-eliminar" onClick={() => eliminar(plato.id)}>Eliminar</button>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
+          {/* Previews */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, margin: "12px 0" }}>
+            <div>
+              <h4>Imagen ES</h4>
+              {menu.imagen_url && (
+                <img
+                  src={menu.imagen_url}
+                  alt="Menú ES"
+                  style={{ maxWidth: "100%", borderRadius: 8, boxShadow: "0 2px 8px rgba(0,0,0,.08)" }}
+                />
+              )}
+              <div style={{ marginTop: 8 }}>
+                <input type="file" accept="image/*" onChange={onFileEs} />
+                <button
+                  className="btn-guardar"
+                  onClick={reemplazarEs}
+                  disabled={!fileEs || subiendoEs}
+                  style={{ marginLeft: 8 }}
+                >
+                  {subiendoEs ? "Subiendo..." : "Reemplazar ES"}
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <h4>Imagen EN</h4>
+              {menu.imagen_url_en && (
+                <img
+                  src={menu.imagen_url_en}
+                  alt="Menú EN"
+                  style={{ maxWidth: "100%", borderRadius: 8, boxShadow: "0 2px 8px rgba(0,0,0,.08)" }}
+                />
+              )}
+              <div style={{ marginTop: 8 }}>
+                <input type="file" accept="image/*" onChange={onFileEn} />
+                <button
+                  className="btn-guardar"
+                  onClick={reemplazarEn}
+                  disabled={!fileEn || subiendoEn}
+                  style={{ marginLeft: 8 }}
+                >
+                  {subiendoEn ? "Subiendo..." : "Reemplazar EN"}
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-      ))}
 
-      <div style={{ marginTop: "30px" }}>
-        <h3>Añadir nuevo plato</h3>
-        <label>
-          Tipo:
-          <select
-            value={nuevoPlato.tipo}
-            onChange={(e) => setNuevoPlato({ ...nuevoPlato, tipo: e.target.value })}
+          <div style={{ marginTop: 16, display: "flex", gap: 10 }}>
+            <button className="btn-eliminar" onClick={desactivar}>Desactivar menú</button>
+            <button className="btn-eliminar" onClick={eliminar}>Eliminar menú</button>
+          </div>
+        </>
+      ) : (
+        <>
+          <p>No hay menú activo. Crea uno nuevo:</p>
+
+          <label style={{ display: "block", margin: "10px 0" }}>
+            Fecha:
+            <input
+              type="date"
+              value={fecha}
+              onChange={(e) => setFecha(e.target.value)}
+              style={{ marginLeft: 8 }}
+            />
+          </label>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 10 }}>
+            <div>
+              <h4>Imagen ES (opcional)</h4>
+              <input type="file" accept="image/*" onChange={onFileEs} />
+            </div>
+            <div>
+              <h4>Imagen EN (opcional)</h4>
+              <input type="file" accept="image/*" onChange={onFileEn} />
+            </div>
+          </div>
+
+          <button
+            className="btn-crear"
+            onClick={crear}
+            disabled={creando || (!fileEs && !fileEn)}
+            style={{ marginTop: 12 }}
           >
-            {tipos.map((t) => (
-              <option key={t} value={t}>
-                {t}
-              </option>
-            ))}
-          </select>
-        </label>
-        <input
-          type="text"
-          placeholder="Nombre del plato"
-          value={nuevoPlato.plato}
-          onChange={(e) => setNuevoPlato({ ...nuevoPlato, plato: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Plato (ES)"
-          value={nuevoPlato.plato_es}
-          onChange={(e) => setNuevoPlato({ ...nuevoPlato, plato_es: e.target.value })}
-        />
-        <input
-          type="text"
-          placeholder="Plato (EN)"
-          value={nuevoPlato.plato_en}
-          onChange={(e) => setNuevoPlato({ ...nuevoPlato, plato_en: e.target.value })}
-        />
-        <button className="btn-crear" onClick={crearPlato}>Crear</button>
-      </div>
+            {creando ? "Subiendo..." : "Crear Menú"}
+          </button>
+        </>
+      )}
     </section>
   );
 }
